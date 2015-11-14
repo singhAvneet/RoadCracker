@@ -12,6 +12,9 @@
 /// <reference path="../objects/label.ts" />
 /// <reference path="../objects/button.ts" />
 /// <reference path="../objects/car.ts" />
+/// <reference path="../objects/track.ts" />
+/// <reference path="../objects/ocean.ts" />
+
 /// <reference path="../objects/scene.ts" />
 
 /// <reference path="../states/over.ts" />

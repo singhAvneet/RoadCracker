@@ -6,7 +6,8 @@
             //430
         }
 
-        public  update():void {
+        public update(): void {
+            if (200 < stage.mouseX && stage.mouseX < 450)
             this.x = stage.mouseX;
 
         }

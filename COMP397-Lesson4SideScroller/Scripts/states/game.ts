@@ -2,6 +2,8 @@
     // GAME CLASS
     export class Game extends objects.Scene {
         // PRIVATE INSTANCE VARIABLES
+        private _ocean: objects.ocean;
+        private _track: objects.track;
         private _car: objects.car;
 
 
@@ -16,6 +18,13 @@
 
         // PUBLIC METHODS
         public start(): void {
+            this._ocean = new objects.ocean();
+            this.addChild(this._ocean);
+
+
+            this._track = new objects.track();
+            this.addChild(this._track);
+
             this._car = new objects.car();
             this.addChild(this._car);
 
@@ -47,7 +56,8 @@
 
 
         public update(): void {
-
+            this._ocean.update();
+            this._track.update();
             this._car.update();
         
             /*
