@@ -1,0 +1,41 @@
+{
+
+"images": [
+    "atlas.png"
+],
+
+"frames": [
+    [2, 2, 70, 146, 0, 0, 0],
+    [2, 150, 150, 50, 0, 0, 0],
+    [2, 202, 150, 50, 0, 0, 0],
+    [74, 2, 70, 140, 0, 0, 0],
+    [146, 2, 150, 50, 0, 0, 0],
+    [146, 54, 65, 80, 0, 0, 0],
+    [154, 136, 67, 108, 0, 0, 0],
+    [213, 54, 70, 70, 0, 0, 0],
+    [285, 54, 40, 50, 0, 0, 0],
+    [285, 106, 30, 29, 0, 0, 0],
+    [223, 137, 65, 100, 0, 0, 0]
+],
+
+"animations": {
+    "truck1": [0],
+    "BackButton": [1],
+    "NextButton": [2],
+    "truck2": [3],
+    "StartButton": [4],
+    "car": [5],
+    "truck4": [6],
+    "collision": [7],
+    "fuel": [8],
+    "coins": [9],
+    "truck3": [10]
+}
+
+
+}
+/*"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:eea52cc3a9ccfe37a443b354a6e33c56:3280f6d9d9f493fd941e40cfc9b24249:cbce6b53f0f49e0bf15173c25c41f876$",
+        "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+]
+    */
