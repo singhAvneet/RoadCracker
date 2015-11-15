@@ -45,11 +45,24 @@ var states;
                         this._backButton.on("click", this._clickBackButton, this); // event listener
                         this.addChild(this._backButton);
             
-                        // next button
+                            // next button
                         this._nextButton = new objects.Button("NextButton", 420, 340);
                         this._nextButton.on("click", this._clickNextButton, this); // event listener
                         this.addChild(this._nextButton);
                         */
+        };
+        Game.prototype._distance = function (p1, p2) {
+            return Math.floor(Math.sqrt(Math.pow((p2.x - p1.x), 2) + Math.pow((p2.y - p1.y), 2)));
+        };
+        Game.prototype._checkCollision = function (object) {
+            if (this._distance(this._car.getPosition(), object.getPosition()) < (this._car.getHalfHeigth() + object.getHalfHeigth())) {
+                if (!this._car.getCollision()) {
+                    console.log("ddd");
+                    this._car.setCollision(true);
+                }
+                else
+                    this._car.setCollision(false);
+            }
         };
         Game.prototype.update = function () {
             this._ocean.update();
@@ -61,18 +74,19 @@ var states;
             this._coins.update();
             this._fuel.update();
             this._car.update();
+            this._checkCollision(this._coins);
             /*
-            // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++++++++
-            // Callback function / Event Handler for Back Button Click
-            private _clickBackButton(event: createjs.MouseEvent): void {
-                changeState(config.MENU_STATE);
-            }
-    
-            // Callback function / Event Handler for Next Button Click
-            private _clickNextButton(event: createjs.MouseEvent): void {
-                changeState(config.OVER_STATE);
-            }
-            */
+        // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++++++++
+        // Callback function / Event Handler for Back Button Click
+        private _clickBackButton(event: createjs.MouseEvent): void {
+            changeState(config.MENU_STATE);
+        }
+
+        // Callback function / Event Handler for Next Button Click
+        private _clickNextButton(event: createjs.MouseEvent): void {
+            changeState(config.OVER_STATE);
+        }
+        */
         };
         return Game;
     })(objects.Scene);

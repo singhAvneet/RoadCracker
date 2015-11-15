@@ -13,7 +13,22 @@ var objects;
             this._heigth = this.getBounds().height;
             this.regX = this._width * 0.5;
             this.regY = this._heigth * 0.5;
+            this._position = new createjs.Point(this.x, this.y);
+            this._isColliding = false;
         }
+        GameObject.prototype.getPosition = function () {
+            var position = new createjs.Point(this.x, this.y);
+            return position;
+        };
+        GameObject.prototype.getHalfHeigth = function () {
+            return this._heigth * 0.5;
+        };
+        GameObject.prototype.getCollision = function () {
+            return this._isColliding;
+        };
+        GameObject.prototype.setCollision = function (isCollided) {
+            this._isColliding = isCollided;
+        };
         return GameObject;
     })(createjs.Sprite);
     objects.GameObject = GameObject;

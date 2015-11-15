@@ -3,6 +3,8 @@
    export class GameObject extends createjs.Sprite {
        protected _width: number;
        protected _heigth: number;
+       protected _position: createjs.Point;
+       protected _isColliding: boolean;
 
        constructor(imageString: string)
         {
@@ -12,8 +14,27 @@
             this._heigth = this.getBounds().height;
             this.regX = this._width * 0.5;
             this.regY = this._heigth * 0.5;
+            this._position = new createjs.Point(this.x, this.y);
+            this._isColliding = false;
 
-    }
+       }
+        
+
+       public getPosition(): createjs.Point {
+           var position: createjs.Point = new createjs.Point(this.x, this.y);
+           return position;
+       }
+
+       public getHalfHeigth(): number {
+           return this._heigth*0.5;
+       }
+
+       public getCollision(): boolean {
+           return this._isColliding;
+       }
+       public setCollision(isCollided: boolean){
+           this._isColliding = isCollided;
+       }
     }
 
 }
