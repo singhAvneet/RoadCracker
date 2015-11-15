@@ -1,60 +1,40 @@
-﻿module states {
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var states;
+(function (states) {
     // GAME CLASS
-    export class Game extends objects.Scene {
-        // PRIVATE INSTANCE VARIABLES
-        private _ocean: objects.ocean;
-        private _track: objects.track;
-       // private _truck: objects.truck;
-        private _trucks: objects.truck[]=[];
-        private _coins: objects.coins;
-        private _fuel: objects.fuel;
-        private _car: objects.car;
-
-
+    var Game = (function (_super) {
+        __extends(Game, _super);
         /*_levelLabel: objects.Label;
         _backButton: objects.Button;
         _nextButton: objects.Button;
         */
         // CONSTRUCTOR
-        constructor() {
-            super();
+        function Game() {
+            _super.call(this);
+            // private _truck: objects.truck;
+            this._trucks = [];
         }
-
         // PUBLIC METHODS
-        public start(): void {
+        Game.prototype.start = function () {
             this._ocean = new objects.ocean();
             this.addChild(this._ocean);
-
-
             this._track = new objects.track();
             this.addChild(this._track);
-
-
-
-           
-                this._trucks[0] = new objects.truck("truck1");
-                this.addChild(this._trucks[0]);
-
-                this._trucks[1] = new objects.truck("truck2");
-                this.addChild(this._trucks[1]);            
-
+            this._trucks[0] = new objects.truck("truck1");
+            this.addChild(this._trucks[0]);
+            this._trucks[1] = new objects.truck("truck2");
+            this.addChild(this._trucks[1]);
             this._coins = new objects.coins();
             this.addChild(this._coins);
-
             this._fuel = new objects.fuel();
             this.addChild(this._fuel);
-
             this._car = new objects.car();
             this.addChild(this._car);
-
             stage.addChild(this);
-
-
-
-
-
-
-
             /*
                         // level label
                         this._levelLabel = new objects.Label("Game Play", "60px Consolas", "#000000", 320, 240);
@@ -70,22 +50,17 @@
                         this._nextButton.on("click", this._clickNextButton, this); // event listener
                         this.addChild(this._nextButton);
                         */
-
-        }
-
-
-        public update(): void {
+        };
+        Game.prototype.update = function () {
             this._ocean.update();
             this._track.update();
-
-            if(Math.floor(Math.random()*10)==2)
+            if (Math.floor(Math.random() * 10) == 2)
                 this._trucks[0].update();
             else
-                 this._trucks[1].update();
+                this._trucks[1].update();
             this._coins.update();
-                this._fuel.update();
+            this._fuel.update();
             this._car.update();
-        
             /*
             // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++++++++
             // Callback function / Event Handler for Back Button Click
@@ -98,8 +73,9 @@
                 changeState(config.OVER_STATE);
             }
             */
-        }
-
-
-    }
-} 
+        };
+        return Game;
+    })(objects.Scene);
+    states.Game = Game;
+})(states || (states = {}));
+//# sourceMappingURL=game.js.map
