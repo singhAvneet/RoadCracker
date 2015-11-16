@@ -5,6 +5,7 @@
        protected _heigth: number;
        protected _position: createjs.Point;
        protected _isColliding: boolean;
+       protected _truckColliding: boolean;
        protected objectName: string;
 
        constructor(imageString: string)
@@ -17,6 +18,7 @@
             this.regY = this._heigth * 0.5;
             this._position = new createjs.Point(this.x, this.y);
             this._isColliding = false;
+            this._truckColliding = false;
             this.objectName = imageString;
 
        }
@@ -31,6 +33,8 @@
            return this._heigth*0.5;
        }
 
+
+
        public getCollision(): boolean {
            return this._isColliding;
        }
@@ -39,6 +43,15 @@
        }
        public getObjectName(): string {
            return this.objectName;
+       }
+
+
+
+       public getTCollision(): boolean {
+           return this._truckColliding;
+       }
+       public setTCollision(isCollided: boolean) {
+           this._truckColliding = isCollided;
        }
     }
 

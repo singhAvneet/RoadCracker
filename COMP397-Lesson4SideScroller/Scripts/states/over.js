@@ -14,6 +14,8 @@ var states;
         }
         // PUBLIC METHODS
         Over.prototype.start = function () {
+            this.endingScreen = new createjs.Bitmap(assets.getResult("ending"));
+            this.addChild(this.endingScreen);
             // level label
             this._levelLabel = new objects.Label("Game Over", "60px Consolas", "#000000", 320, 240, true);
             this.addChild(this._levelLabel); // add label to the stage

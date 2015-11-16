@@ -4,6 +4,7 @@
         // PRIVATE INSTANCE VARIABLES
         _levelLabel: objects.Label;
         _backButton: objects.Button;
+        endingScreen: createjs.Bitmap;
 
         // CONSTRUCTOR
         constructor() {
@@ -12,6 +13,9 @@
 
         // PUBLIC METHODS
         public start(): void {
+
+            this.endingScreen = new createjs.Bitmap(assets.getResult("ending"));
+            this.addChild(this.endingScreen);
 
             // level label
             this._levelLabel = new objects.Label("Game Over", "60px Consolas", "#000000", 320, 240,true);

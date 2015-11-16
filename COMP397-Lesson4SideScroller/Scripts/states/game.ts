@@ -10,7 +10,7 @@
         private _fuel: objects.fuel;
         private _car: objects.car;
         private _collision: managers.Collision;
-        
+        private TruckCollided: boolean;
 
         _scoreLabel: objects.Label;
         _livesLabel: objects.Label;
@@ -69,7 +69,13 @@
         }
 
         public update(): void {
-            if (scoreboard.getLives() < 10) {
+            if (this.TruckCollided) {
+                this.addChild(this._trucks[0]);
+                this.addChild(this._trucks[1]);
+            }
+
+
+            if (scoreboard.getLives() < 10||scoreboard.getScore()<100) {
                 this.addChild(this._coins);
                 this.addChild(this._fuel);
             }
@@ -79,22 +85,30 @@
             this._ocean.update();
             this._track.update();
             
-
             if (Math.floor(Math.random() * 7) === 2) {
                 this._trucks[0].update();
-                this._collision.update(this._car,this._trucks[0]);
             }
             else {
                 this._trucks[1].update();
-                this._collision.update(this._car,this._trucks[1]);
             }
+            if(scoreboard.getScore()>1000)
+            if (Math.floor(Math.random() * 3) === 2) {
+                this._trucks[0].update();               
+            }
+            else {
+                this._trucks[1].update();
+            }
+
+
             this._coins.update();
             this._fuel.update();
             this._car.update();
-        
-          //  this._collision.update(this._trucks[0], this._trucks[1]);
+            this.TruckCollided = this._collision._Truckcollision(this._trucks[0], this._trucks[1]);
+            this._collision.update(this._car, this._trucks[1]);
+            this._collision.update(this._car, this._trucks[0]);
             this._collision.update(this._car, this._coins);
             this._collision.update(this._car, this._fuel);
+            
            // this._collision.update(this._trucks[0], this._trucks[1]);
                 /*
                
@@ -105,7 +119,7 @@
             */
             this.updateScore();
 
-            if (scoreboard.getLives() <= 1) {
+            if (scoreboard.getLives() <=-1 ) {
                 stage.removeChild(game);
                 this._car.destroy();
                 game.removeAllChildren();

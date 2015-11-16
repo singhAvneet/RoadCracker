@@ -85,6 +85,7 @@ var data = {
 
 // manifest of all our assets
 var manifest = [
+    { id: "welcome", src: "../../Assets/images/welcome.png" },
     { id: "track", src: "../../Assets/images/track.png" },
     { id: "ocean", src: "../../Assets/images/ocean.gif" },
     { id: "StartButton", src: "../../Assets/images/StartButton.png" },
@@ -92,7 +93,8 @@ var manifest = [
     { id: "thunder", src: "../../Assets/audio/thunder.ogg" },
     { id: "blast", src: "Assets/audio/blast.wav" },
     { id: "coin", src: "Assets/audio/coin.flac" },
-    { id: "drift", src: "../../Assets/audio/drift.wav" }
+    { id: "drift", src: "../../Assets/audio/drift.wav" },
+    { id: "ending", src: "../../Assets/images/ending.png" }
 ];
 
 function preload(): void {
@@ -100,7 +102,6 @@ function preload(): void {
     assets.installPlugin(createjs.Sound);
     assets.on("complete", init, this);
     assets.loadManifest(manifest);
-
     atlas = new createjs.SpriteSheet(data);
 }
 

@@ -4,6 +4,7 @@
         // PRIVATE INSTANCE VARIABLES
         _helloLabel: objects.Label;
         _startButton: objects.Button;
+        welcomeImage: createjs.Bitmap;
 
         // CONSTRUCTOR
         constructor() {
@@ -12,6 +13,9 @@
 
         // PUBLIC METHODS
         public start(): void {
+
+            this.welcomeImage = new createjs.Bitmap(assets.getResult("welcome"));
+            this.addChild(this.welcomeImage);
 
             // hello label
             this._helloLabel = new objects.Label("Game Start", "60px Consolas", "#000000", 320, 240,true);
