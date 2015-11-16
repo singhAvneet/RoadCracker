@@ -5,6 +5,7 @@
        protected _heigth: number;
        protected _position: createjs.Point;
        protected _isColliding: boolean;
+       protected objectName: string;
 
        constructor(imageString: string)
         {
@@ -16,6 +17,7 @@
             this.regY = this._heigth * 0.5;
             this._position = new createjs.Point(this.x, this.y);
             this._isColliding = false;
+            this.objectName = imageString;
 
        }
         
@@ -34,6 +36,9 @@
        }
        public setCollision(isCollided: boolean){
            this._isColliding = isCollided;
+       }
+       public getObjectName(): string {
+           return this.objectName;
        }
     }
 

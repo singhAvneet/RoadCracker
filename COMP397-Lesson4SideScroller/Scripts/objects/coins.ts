@@ -1,13 +1,16 @@
 ﻿module objects {
     export class coins extends objects.GameObject {
         private dy: number;
-        constructor() {
-            super("coins");
+        private obj: objects.coins;
+        private stge: objects.Scene;
+        constructor(str:string) {
+            super(str);
             this.dy = 5;
             this.reset();
 
         }
         public update(): void {
+          
             this.y += this.dy;
             this.checkbound();
 
@@ -23,6 +26,10 @@
                 this.reset();
         }
 
+        public destroy(): void {
+            createjs.Sound.play("");
+            game.removeChild();
+        }
     }
 
 

@@ -6,6 +6,8 @@
 /// <reference path="../typings/tweenjs/tweenjs.d.ts" />
 /// <reference path="../typings/soundjs/soundjs.d.ts" />
 /// <reference path="../typings/preloadjs/preloadjs.d.ts" />
+/// <reference path="../managers/scorecard.ts" />
+/// <reference path="../managers/collision.ts" />
 /// <reference path="../objects/gameobjects.ts" />
 /// <reference path="../objects/label.ts" />
 /// <reference path="../objects/button.ts" />
@@ -27,6 +29,8 @@ var stats;
 var state;
 var currentState; // alias for our current state
 var atlas;
+//managers
+var scoreboard;
 // GAME OBJECTS
 var menu;
 var game;
@@ -69,7 +73,9 @@ var manifest = [
     { id: "StartButton", src: "../../Assets/images/StartButton.png" },
     { id: "engine", src: "../../Assets/audio/engine.ogg" },
     { id: "thunder", src: "../../Assets/audio/thunder.ogg" },
-    { id: "yay", src: "../../Assets/audio/engine.ogg" }
+    { id: "blast", src: "Assets/audio/blast.wav" },
+    { id: "coin", src: "Assets/audio/coin.flac" },
+    { id: "drift", src: "../../Assets/audio/drift.wav" }
 ];
 function preload() {
     assets = new createjs.LoadQueue();
@@ -85,6 +91,7 @@ function init() {
     createjs.Ticker.setFPS(60); // set frame rate to 60 fps
     createjs.Ticker.on("tick", gameLoop); // update gameLoop every frame
     setupStats(); // sets up our stats counting
+    scoreboard = new managers.Scorecard();
     state = config.MENU_STATE;
     changeState(state);
 }

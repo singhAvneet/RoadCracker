@@ -14,7 +14,7 @@
         public start(): void {
 
             // hello label
-            this._helloLabel = new objects.Label("Game Start", "60px Consolas", "#000000", 320, 240);
+            this._helloLabel = new objects.Label("Game Start", "60px Consolas", "#000000", 320, 240,true);
             this.addChild(this._helloLabel); // add label to the stage
 
             // start button

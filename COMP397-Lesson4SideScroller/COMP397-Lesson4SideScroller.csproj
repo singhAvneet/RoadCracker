@@ -59,6 +59,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\audio\blast.wav" />
+    <Content Include="Assets\audio\coin.flac" />
+    <Content Include="Assets\audio\drift.wav" />
     <Content Include="Assets\images\atlas.png" />
     <Content Include="Assets\images\BackButton.png" />
     <Content Include="Assets\images\car.png" />
@@ -109,6 +112,8 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\config\config.ts" />
     <TypeScriptCompile Include="Scripts\core\game.ts" />
+    <TypeScriptCompile Include="Scripts\managers\collision.ts" />
+    <TypeScriptCompile Include="Scripts\managers\scorecard.ts" />
     <TypeScriptCompile Include="Scripts\objects\button.ts" />
     <TypeScriptCompile Include="Scripts\objects\car.ts" />
     <TypeScriptCompile Include="Scripts\objects\coins.ts" />

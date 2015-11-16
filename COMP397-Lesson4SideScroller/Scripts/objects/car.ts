@@ -2,8 +2,8 @@
     export class car extends objects.GameObject {
         constructor() {
             super("car");
-            this.y = 430;
-            //430
+            this.y = 380;
+            createjs.Sound.play("engine",0,0,0,-1,1,0);
         }
 
         public update(): void {
@@ -11,6 +11,9 @@
             this.x = stage.mouseX;
 
         }
-
+       public destroy():void {
+            createjs.Sound.play("");
+            game.removeChild();
+        }
     }
 }

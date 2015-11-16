@@ -9,12 +9,16 @@ var objects;
         __extends(car, _super);
         function car() {
             _super.call(this, "car");
-            this.y = 430;
-            //430
+            this.y = 380;
+            createjs.Sound.play("engine", 0, 0, 0, -1, 1, 0);
         }
         car.prototype.update = function () {
             if (200 < stage.mouseX && stage.mouseX < 450)
                 this.x = stage.mouseX;
+        };
+        car.prototype.destroy = function () {
+            createjs.Sound.play("");
+            game.removeChild();
         };
         return car;
     })(objects.GameObject);

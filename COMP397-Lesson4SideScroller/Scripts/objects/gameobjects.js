@@ -15,6 +15,7 @@ var objects;
             this.regY = this._heigth * 0.5;
             this._position = new createjs.Point(this.x, this.y);
             this._isColliding = false;
+            this.objectName = imageString;
         }
         GameObject.prototype.getPosition = function () {
             var position = new createjs.Point(this.x, this.y);
@@ -28,6 +29,9 @@ var objects;
         };
         GameObject.prototype.setCollision = function (isCollided) {
             this._isColliding = isCollided;
+        };
+        GameObject.prototype.getObjectName = function () {
+            return this.objectName;
         };
         return GameObject;
     })(createjs.Sprite);

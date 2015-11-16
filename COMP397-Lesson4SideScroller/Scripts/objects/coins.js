@@ -7,8 +7,8 @@ var objects;
 (function (objects) {
     var coins = (function (_super) {
         __extends(coins, _super);
-        function coins() {
-            _super.call(this, "coins");
+        function coins(str) {
+            _super.call(this, str);
             this.dy = 5;
             this.reset();
         }
@@ -23,6 +23,10 @@ var objects;
         coins.prototype.checkbound = function () {
             if (this.y >= (480 + this._heigth))
                 this.reset();
+        };
+        coins.prototype.destroy = function () {
+            createjs.Sound.play("");
+            game.removeChild();
         };
         return coins;
     })(objects.GameObject);
