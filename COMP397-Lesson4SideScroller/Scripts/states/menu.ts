@@ -18,7 +18,7 @@
             this.addChild(this.welcomeImage);
 
             // hello label
-            this._helloLabel = new objects.Label("Game Start", "60px Consolas", "#000000", 320, 240,true);
+            this._helloLabel = new objects.Label("Speed Racer", "50px monaco", "#000000", 320, 248,true);
             this.addChild(this._helloLabel); // add label to the stage
 
             // start button

@@ -1,9 +1,11 @@
 ﻿module managers {
-    export class Collision {
+    export class Collision  {
         private coins: objects.coins;
         private game: createjs.Container;
+        private _tile1: createjs.Bitmap;
 
         constructor() {
+         
 
         }
 
@@ -28,6 +30,9 @@
                             scoreboard.removeLives(2);
                             scoreboard.removescore(50);
                             createjs.Sound.play("coin");
+                       // this._tile1 = new createjs.Bitmap(assets.getResult("collision"));
+                           // game._tile1 = new objects.Scene("collision");
+                            game.addChild(this._tile1);
                             game.removeChild(object2);
                             break;
 

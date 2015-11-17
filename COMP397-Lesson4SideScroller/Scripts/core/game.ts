@@ -94,7 +94,8 @@ var manifest = [
     { id: "blast", src: "Assets/audio/blast.wav" },
     { id: "coin", src: "Assets/audio/coin.flac" },
     { id: "drift", src: "../../Assets/audio/drift.wav" },
-    { id: "ending", src: "../../Assets/images/ending.png" }
+    { id: "ending", src: "../../Assets/images/ending.png" },
+    { id: "collision", src: "../../Assets/images/collision.png" }
 ];
 
 function preload(): void {
@@ -163,6 +164,12 @@ function changeState(state): void {
         case config.OVER_STATE:
             // show the game over scene
             stage.removeAllChildren();
+            over = new states.Over();
+            currentState = over;
+            break;
+        case config.INSTRUCTION_STATE:
+            // show the game over scene
+            
             over = new states.Over();
             currentState = over;
             break;

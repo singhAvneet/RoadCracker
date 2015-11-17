@@ -127,6 +127,7 @@
     <TypeScriptCompile Include="Scripts\objects\track.ts" />
     <TypeScriptCompile Include="Scripts\objects\truck.ts" />
     <TypeScriptCompile Include="Scripts\states\game.ts" />
+    <TypeScriptCompile Include="Scripts\states\instruction.ts" />
     <TypeScriptCompile Include="Scripts\states\menu.ts" />
     <TypeScriptCompile Include="Scripts\states\over.ts" />
     <TypeScriptCompile Include="Scripts\typings\createjs-lib\createjs-lib.d.ts" />

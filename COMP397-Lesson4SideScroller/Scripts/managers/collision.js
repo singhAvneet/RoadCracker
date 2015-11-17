@@ -17,6 +17,9 @@ var managers;
                             scoreboard.removeLives(2);
                             scoreboard.removescore(50);
                             createjs.Sound.play("coin");
+                            // this._tile1 = new createjs.Bitmap(assets.getResult("collision"));
+                            // game._tile1 = new objects.Scene("collision");
+                            game.addChild(this._tile1);
                             game.removeChild(object2);
                             break;
                         case "truck2":
