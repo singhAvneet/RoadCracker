@@ -1,4 +1,30 @@
-﻿body {
+﻿
+@font-face
+ {
+    font-family: 'dock_51regular';
+   
+ src: url('../Assets/fonts/dock51-webfont.eot');
+  
+  src: url('../Assets/fonts/dock51-webfont.eot?#iefix') format('embedded-opentype'),
+       
+  url('../Assets/fonts/dock51-webfont.woff2') format('woff2'),
+     
+    url('../Assets/fonts/dock51-webfont.woff') format('woff'),
+       
+  url('../Assets/fonts/dock51-webfont.ttf') format('truetype'),
+        
+ url('../Assets/fonts/dock51-webfont.svg#dock_51regular') format('svg');
+  
+  font-weight: normal;
+    
+font-style: normal;
+
+
+
+}
+body {
+
+    font-family: "dock_51regular" ,Arial,Haettenschweiler,sans-serif;
     background-color: darkgray;
 }
 

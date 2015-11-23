@@ -49,10 +49,10 @@
                 this._fuel = new objects.fuel();
                 this.addChild(this._fuel);
 
-            this._scoreLabel = new objects.Label("Score: ", "40px Consolas", "#FFFF00", 5, 5, false);
+            this._scoreLabel = new objects.Label("Score: ", "40px "+ config.FONT_FAMILY, config.FONT_COLOR, 5, 5, false);
             this.addChild(this._scoreLabel);
 
-            this._livesLabel = new objects.Label("Lives: ", "40px Consolas", "#FFFF00", 350, 5, false);
+            this._livesLabel = new objects.Label("Lives: ", "40px " + config.FONT_FAMILY, config.FONT_COLOR, 350, 5, false);
             this.addChild(this._livesLabel);
 
 
