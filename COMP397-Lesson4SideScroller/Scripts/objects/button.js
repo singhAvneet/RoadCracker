@@ -9,7 +9,7 @@ var objects;
         __extends(Button, _super);
         //CONSTRUCTOR
         function Button(pathString, x, y) {
-            _super.call(this, assets.getResult(pathString));
+            _super.call(this, atlas, pathString);
             this.x = x;
             this.y = y;
             this.width = 150;
@@ -29,7 +29,7 @@ var objects;
             event.currentTarget.alpha = 1.0;
         };
         return Button;
-    })(createjs.Bitmap);
+    })(createjs.Sprite);
     objects.Button = Button;
 })(objects || (objects = {}));
 //# sourceMappingURL=button.js.map

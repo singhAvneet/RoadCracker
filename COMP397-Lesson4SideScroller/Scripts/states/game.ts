@@ -120,10 +120,7 @@
             this.updateScore();
 
             if (scoreboard.getLives() <=-1 ) {
-                stage.removeChild(game);
                 this._car.destroy();
-                game.removeAllChildren();
-                game.removeAllEventListeners();
                 
               //  currentState = constants.GAME_OVER_STATE;
                 changeState(config.OVER_STATE);

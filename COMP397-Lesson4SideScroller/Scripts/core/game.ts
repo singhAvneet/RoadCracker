@@ -60,7 +60,7 @@ var manifest = [
     { id: "welcome", src: "../../Assets/images/welcome.png" },
     { id: "track", src: "../../Assets/images/track.png" },
     { id: "ocean", src: "../../Assets/images/ocean.gif" },
-    { id: "StartButton", src: "../../Assets/images/StartButton.png" },
+  //  { id: "StartButton", src: "../../Assets/images/StartButton.png" },
     { id: "engine", src: "../../Assets/audio/engine.ogg" },
     { id: "thunder", src: "../../Assets/audio/thunder.ogg" },
     { id: "blast", src: "Assets/audio/blast.wav" },
@@ -113,9 +113,6 @@ function setupStats():void {
 }
 
 
-
-
-
 // state machine prep
 function changeState(state): void {
     // Launch various scenes
@@ -140,8 +137,7 @@ function changeState(state): void {
             currentState = over;
             break;
         case config.INSTRUCTION_STATE:
-            // show the game over scene
-            
+            // show the game over scene            
             over = new states.Over();
             currentState = over;
             break;

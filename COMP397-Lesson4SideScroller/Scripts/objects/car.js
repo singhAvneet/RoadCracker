@@ -10,15 +10,15 @@ var objects;
         function car() {
             _super.call(this, "car");
             this.y = 380;
-            createjs.Sound.play("engine", 0, 0, 0, -1, 1, 0);
+            this._engineSound = createjs.Sound.play("engine", 0, 0, 0, -1, 1, 0);
         }
         car.prototype.update = function () {
             if (200 < stage.mouseX && stage.mouseX < 450)
                 this.x = stage.mouseX;
         };
         car.prototype.destroy = function () {
-            createjs.Sound.play("");
-            game.removeChild();
+            this._engineSound.stop();
+            //   game.removeChild();
         };
         return car;
     })(objects.GameObject);
