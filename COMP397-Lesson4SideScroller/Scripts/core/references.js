@@ -18,8 +18,11 @@
 /// <reference path="../objects/track.ts" />
 /// <reference path="../objects/smallcar.ts" />
 /// <reference path="../objects/ocean.ts" />
+/// <reference path="../objects/ground.ts" />
 /// <reference path="../objects/scene.ts" />
+/// <reference path="../states/game2.ts" />
 /// <reference path="../states/over.ts" />
 /// <reference path="../states/game.ts" />
 /// <reference path="../states/menu.ts" />
+/// <reference path="../states/instruction.ts" />
 //# sourceMappingURL=references.js.map

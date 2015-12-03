@@ -6,26 +6,26 @@ var __extends = (this && this.__extends) || function (d, b) {
 var states;
 (function (states) {
     // GAME CLASS
-    var Game = (function (_super) {
-        __extends(Game, _super);
+    var game2 = (function (_super) {
+        __extends(game2, _super);
         /*  _backButton: objects.Button;
           _nextButton: objects.Button;
           */
         // CONSTRUCTOR
-        function Game() {
+        function game2() {
             _super.call(this);
             // private _truck: objects.truck;
             this._trucks = [];
         }
         // PUBLIC METHODS
-        Game.prototype.start = function () {
+        game2.prototype.start = function () {
             scoreboard.setLives(15);
             scoreboard.setScore(100);
             this._nextButton = new objects.Button("NextButton", 420, 440);
             stage.addChild(this);
             this.TruckCollided = false;
-            this._ocean = new objects.ocean();
-            this.addChild(this._ocean);
+            this._ground = new objects.ground();
+            this.addChild(this._ground);
             this._track = new objects.track();
             this.addChild(this._track);
             this._trucks[0] = new objects.truck("truck1");
@@ -52,14 +52,14 @@ var states;
                         this.addChild(this._nextButton);
                         */
         };
-        Game.prototype.update = function () {
+        game2.prototype.update = function () {
             this.addChild(this._trucks[0]);
             this.addChild(this._trucks[1]);
             if (scoreboard.getLives() < 10 || scoreboard.getScore() < 100) {
                 this.addChild(this._coins);
                 this.addChild(this._fuel);
             }
-            this._ocean.update();
+            this._ground.update();
             this._track.update();
             this._trucks[1].update();
             this._trucks[0].update();
@@ -107,19 +107,19 @@ var states;
                 this._car.destroy();
                 this.removeAllChildren();
                 //  currentState = constants.GAME_OVER_STATE;
-                changeState(config.PLAY_STATE2);
+                changeState(config.OVER_STATE);
             }
         };
-        Game.prototype.updateScore = function () {
+        game2.prototype.updateScore = function () {
             this._livesLabel.text = "Lives: " + scoreboard.getLives();
             this._scoreLabel.text = "Score: " + scoreboard.getScore();
         };
-        Game.prototype._clickNextButton = function (event) {
-            changeState(config.PLAY_STATE2);
+        game2.prototype._clickNextButton = function (event) {
+            changeState(config.OVER_STATE);
             this.removeAllChildren();
         };
-        return Game;
+        return game2;
     })(objects.Scene);
-    states.Game = Game;
+    states.game2 = game2;
 })(states || (states = {}));
-//# sourceMappingURL=game.js.map
+//# sourceMappingURL=game2.js.map

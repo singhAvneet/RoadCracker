@@ -5,6 +5,8 @@ var config;
     config.PLAY_STATE = 1;
     config.OVER_STATE = 2;
     config.INSTRUCTION_STATE = 3;
+    config.PLAY_STATE2 = 4;
+    config.PLAY_STATE3 = 5;
     config.FONT_FAMILY = "dock_51regular";
     config.FONT_COLOR = "#FFFF00";
 })(config || (config = {}));

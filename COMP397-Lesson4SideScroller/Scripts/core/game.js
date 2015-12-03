@@ -12,24 +12,27 @@ var scoreboard;
 // GAME OBJECTS
 var menu;
 var game;
+var game2;
 var over;
+var instruction;
 var data = {
     "images": [
         "../../Assets/images/atlas.png"
     ],
     "frames": [
         [2, 2, 70, 146, 0, 0, 0],
-        [2, 150, 150, 50, 0, 0, 0],
-        [2, 202, 150, 50, 0, 0, 0],
+        [2, 150, 149, 50, 0, 0, 0],
+        [2, 202, 149, 50, 0, 0, 0],
         [74, 2, 70, 140, 0, 0, 0],
         [146, 2, 149, 50, 0, 0, 0],
-        [297, 2, 40, 50, 0, 0, 0],
-        [146, 54, 65, 80, 0, 0, 0],
-        [154, 136, 67, 108, 0, 0, 0],
-        [213, 54, 70, 70, 0, 0, 0],
-        [223, 126, 65, 100, 0, 0, 0],
-        [285, 54, 30, 30, 0, 0, 0],
-        [285, 86, 30, 29, 0, 0, 0]
+        [297, 2, 65, 100, 0, 0, 0],
+        [146, 54, 149, 50, 0, 0, 0],
+        [297, 104, 65, 80, 0, 0, 0],
+        [146, 106, 30, 30, 0, 0, 0],
+        [153, 138, 67, 108, 0, 0, 0],
+        [178, 106, 30, 29, 0, 0, 0],
+        [222, 106, 70, 70, 0, 0, 0],
+        [222, 178, 40, 50, 0, 0, 0]
     ],
     "animations": {
         "truck1": [0],
@@ -37,13 +40,14 @@ var data = {
         "NextButton": [2],
         "truck2": [3],
         "StartButton": [4],
-        "fuel": [5],
-        "car": [6],
-        "truck4": [7],
-        "collision": [8],
-        "truck3": [9],
-        "SmallCar": [10],
-        "coins": [11]
+        "truck3": [5],
+        "instructionButton": [6],
+        "car": [7],
+        "SmallCar": [8],
+        "truck4": [9],
+        "coins": [10],
+        "collision": [11],
+        "fuel": [12]
     }
 };
 // manifest of all our assets
@@ -51,7 +55,8 @@ var manifest = [
     { id: "welcome", src: "../../Assets/images/welcome.png" },
     { id: "track", src: "../../Assets/images/track.png" },
     { id: "ocean", src: "../../Assets/images/ocean.gif" },
-    { id: "START", src: "../../Assets/images/START.png" },
+    { id: "ground", src: "../../Assets/images/ground.png" },
+    { id: "instruction", src: "../../Assets/images/INSTRUCTIONS.png" },
     { id: "engine", src: "../../Assets/audio/engine.ogg" },
     { id: "thunder", src: "../../Assets/audio/thunder.ogg" },
     { id: "blast", src: "Assets/audio/blast.wav" },
@@ -110,6 +115,16 @@ function changeState(state) {
             game = new states.Game();
             currentState = game;
             break;
+        case config.PLAY_STATE2:
+            // show the play scene
+            stage.removeAllChildren();
+            game2 = new states.game2();
+            currentState = game2;
+            break;
+        case config.PLAY_STATE3:
+            // show the play scene
+            stage.removeAllChildren();
+            break;
         case config.OVER_STATE:
             // show the game over scene
             stage.removeAllChildren();
@@ -118,8 +133,8 @@ function changeState(state) {
             break;
         case config.INSTRUCTION_STATE:
             // show the game over scene            
-            over = new states.Over();
-            currentState = over;
+            instruction = new states.instruction();
+            currentState = instruction;
             break;
     }
     currentState.start();

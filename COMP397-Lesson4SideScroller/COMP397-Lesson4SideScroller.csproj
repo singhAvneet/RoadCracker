@@ -70,9 +70,10 @@
     <Content Include="Assets\images\collision.png" />
     <Content Include="Assets\images\ending.png" />
     <Content Include="Assets\images\fuel.png" />
+    <Content Include="Assets\images\ground.png" />
+    <Content Include="Assets\images\INSTRUCTIONS.png" />
     <Content Include="Assets\images\NextButton.png" />
     <Content Include="Assets\images\ocean.gif" />
-    <Content Include="Assets\images\START.png" />
     <Content Include="Assets\images\StartButton.png" />
     <Content Include="Assets\images\track.png" />
     <Content Include="Assets\images\truck1.png" />
@@ -132,6 +133,7 @@
     <TypeScriptCompile Include="Scripts\objects\coins.ts" />
     <TypeScriptCompile Include="Scripts\objects\fuel.ts" />
     <TypeScriptCompile Include="Scripts\objects\gameObjects.ts" />
+    <TypeScriptCompile Include="Scripts\objects\ground.ts" />
     <TypeScriptCompile Include="Scripts\objects\label.ts" />
     <TypeScriptCompile Include="Scripts\objects\ocean.ts" />
     <TypeScriptCompile Include="Scripts\objects\scene.ts" />
@@ -139,6 +141,7 @@
     <TypeScriptCompile Include="Scripts\objects\track.ts" />
     <TypeScriptCompile Include="Scripts\objects\truck.ts" />
     <TypeScriptCompile Include="Scripts\states\game.ts" />
+    <TypeScriptCompile Include="Scripts\states\game2.ts" />
     <TypeScriptCompile Include="Scripts\states\instruction.ts" />
     <TypeScriptCompile Include="Scripts\states\menu.ts" />
     <TypeScriptCompile Include="Scripts\states\over.ts" />

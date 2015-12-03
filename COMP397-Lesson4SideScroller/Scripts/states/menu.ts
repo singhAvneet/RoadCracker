@@ -4,6 +4,7 @@
         // PRIVATE INSTANCE VARIABLES
         _helloLabel: objects.Label;
         _startButton: objects.Button;
+        _instructionButton: objects.Button;
      //   _startButton: createjs.Bitmap;
         welcomeImage: createjs.Bitmap;
 
@@ -22,7 +23,9 @@
             this._helloLabel = new objects.Label("Speed Racer", "50px" +  config.FONT_FAMILY, config.FONT_COLOR, 320, 248,true);
             this.addChild(this._helloLabel); // add label to the stage
 
-            
+            this._instructionButton = new objects.Button("instructionButton", 320, 290)
+            this._instructionButton.on("click", this._instructionClick, this); // event listener
+            this.addChild(this._instructionButton);
             // start button
            this._startButton = new objects.Button("StartButton", 320, 340);
        //     this._startButton = new createjs.Bitmap("START");
@@ -41,6 +44,10 @@
         private _clickStartButton(event: createjs.MouseEvent): void {
             createjs.Sound.play("yay"); // activate static class play 
             changeState(config.PLAY_STATE);
+        }
+        private _instructionClick(event: createjs.MouseEvent): void {
+            changeState(config.INSTRUCTION_STATE);
+
         }
 
     }
