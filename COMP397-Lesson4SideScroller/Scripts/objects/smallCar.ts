@@ -8,7 +8,7 @@
            }
 
         public update(): void {
-            this.y -= 0.2;
+            this.y -= 1;
         }
         public destroy(): void {
             this._engineSound.stop();

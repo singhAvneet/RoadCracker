@@ -99,6 +99,7 @@ var states;
             this.updateScore();
             if (this._smallCar.gety() < 0) {
                 this._car.destroy();
+                // th
                 this._nextButton.on("click", this._clickNextButton, this); // event listener
                 this.addChild(this._nextButton);
                 stage.addChild(this);

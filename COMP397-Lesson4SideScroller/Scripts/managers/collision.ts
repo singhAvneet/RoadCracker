@@ -1,7 +1,7 @@
 ﻿module managers {
     export class Collision  {
         private coins: objects.coins;
-        private game: createjs.Container;
+       // private game: createjs.Container;
         private _tile1: createjs.Bitmap;
 
         constructor() {
@@ -29,11 +29,17 @@
                         case "coins":
                             scoreboard.removeLives(2);
                             scoreboard.removescore(50);
-                            createjs.Sound.play("coin");
+                          //  createjs.Sound.play("coin");
                        // this._tile1 = new createjs.Bitmap(assets.getResult("collision"));
                            // game._tile1 = new objects.Scene("collision");
-                            game.addChild(this._tile1);
-                            game.removeChild(object2);
+                           // game2.addChild(this._tile1);
+                            
+                   
+                            if (state===1) {
+                                game.removeChild(object2);
+                            }
+                            else
+                                game2.removeChild(object2);
                             break;
 
                      
@@ -45,8 +51,12 @@
                             break;
                         case "fuel":
                             scoreboard.addLives(2);
-                            
-                            game.removeChild(object2);
+                            if (state === 1) {
+                                game.removeChild(object2);
+                            }
+                            else
+                                game2.removeChild(object2);
+                           
                             break;
 
                         case "truck2":

@@ -135,6 +135,7 @@
           
             if ( this._smallCar.gety() < 0) {
                 this._car.destroy();
+               // th
                 this._nextButton.on("click", this._clickNextButton, this); // event listener
                 this.addChild(this._nextButton);
                 stage.addChild(this);
@@ -156,6 +157,7 @@
         }
         private _clickNextButton(event:createjs.MouseEvent): void {
             changeState(config.PLAY_STATE2);
+            
             this.removeAllChildren();
         }
 

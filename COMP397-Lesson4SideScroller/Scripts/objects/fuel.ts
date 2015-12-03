@@ -20,6 +20,10 @@
             if (this.y >= (480 + this._heigth))
                 this.reset();
         }
+        public destroy(): void {
+
+            game.removeChild();
+        }
 
     }
 

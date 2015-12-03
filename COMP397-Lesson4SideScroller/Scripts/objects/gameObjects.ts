@@ -7,6 +7,7 @@
        protected _isColliding: boolean;
        protected _truckColliding: boolean;
        protected objectName: string;
+       protected game2: createjs.Container;
 
        constructor(imageString: string)
         {
@@ -59,6 +60,7 @@
            this.x = Math.floor((Math.random() * 250) + 200);
            this.y = -this._heigth;
        }
+   
     }
 
 }

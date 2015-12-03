@@ -35,6 +35,7 @@ var states;
         Menu.prototype._clickStartButton = function (event) {
             createjs.Sound.play("yay"); // activate static class play 
             changeState(config.PLAY_STATE);
+            state = 1;
         };
         Menu.prototype._instructionClick = function (event) {
             changeState(config.INSTRUCTION_STATE);

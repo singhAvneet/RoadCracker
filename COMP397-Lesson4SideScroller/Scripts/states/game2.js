@@ -19,10 +19,10 @@ var states;
         }
         // PUBLIC METHODS
         game2.prototype.start = function () {
+            state = 2;
             scoreboard.setLives(15);
             scoreboard.setScore(100);
             this._nextButton = new objects.Button("NextButton", 420, 440);
-            stage.addChild(this);
             this.TruckCollided = false;
             this._ground = new objects.ground();
             this.addChild(this._ground);
@@ -32,6 +32,10 @@ var states;
             this.addChild(this._trucks[0]);
             this._smallCar = new objects.smallCar();
             this.addChild(this._smallCar);
+            this._gun = new objects.gun();
+            this.addChild(this._gun);
+            this._bullet = new objects.bullet();
+            this.addChild(this._bullet);
             this._trucks[1] = new objects.truck("truck2");
             this.addChild(this._trucks[1]);
             this._car = new objects.car();
@@ -83,6 +87,7 @@ var states;
             this._fuel.update();
             this._car.update();
             this._smallCar.update();
+            this._bullet.update();
             // this.TruckCollided = this._collision._Truckcollision(this._trucks[0], this._trucks[1]);
             this._collision.update(this._car, this._trucks[1]);
             this._collision.update(this._car, this._trucks[0]);

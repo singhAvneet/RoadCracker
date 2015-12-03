@@ -44,6 +44,7 @@
         private _clickStartButton(event: createjs.MouseEvent): void {
             createjs.Sound.play("yay"); // activate static class play 
             changeState(config.PLAY_STATE);
+            state = 1;
         }
         private _instructionClick(event: createjs.MouseEvent): void {
             changeState(config.INSTRUCTION_STATE);

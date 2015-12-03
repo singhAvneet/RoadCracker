@@ -26,10 +26,7 @@
                 this.reset();
         }
 
-        public destroy(): void {
-            createjs.Sound.play("");
-            game.removeChild();
-        }
+       
     }
 
 

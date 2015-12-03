@@ -24,6 +24,9 @@ var objects;
             if (this.y >= (480 + this._heigth))
                 this.reset();
         };
+        fuel.prototype.destroy = function () {
+            game.removeChild();
+        };
         return fuel;
     })(objects.GameObject);
     objects.fuel = fuel;

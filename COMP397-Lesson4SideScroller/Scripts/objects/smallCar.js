@@ -13,7 +13,7 @@ var objects;
             this.x = 100;
         }
         smallCar.prototype.update = function () {
-            this.y -= 0.2;
+            this.y -= 1;
         };
         smallCar.prototype.destroy = function () {
             this._engineSound.stop();

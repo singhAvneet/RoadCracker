@@ -3,6 +3,7 @@
     export class game2 extends objects.Scene {
         // PRIVATE INSTANCE VARIABLES
         private _ground: objects.ground;
+        private _ocean: objects.ocean;
         private _track: objects.track;
         private _smallCar: objects.smallCar;
         // private _truck: objects.truck;
@@ -13,7 +14,8 @@
         private _collision: managers.Collision;
         private TruckCollided: boolean;
         private _nextButton: objects.Button;
-
+        private _gun: objects.gun;
+        private _bullet: objects.bullet;
         _scoreLabel: objects.Label;
         _livesLabel: objects.Label;
         /*  _backButton: objects.Button;
@@ -22,16 +24,17 @@
         // CONSTRUCTOR
         constructor() {
             super();
+
         }
 
         // PUBLIC METHODS
         public start(): void {
-
+            state = 2;
             scoreboard.setLives(15);
             scoreboard.setScore(100);
             this._nextButton = new objects.Button("NextButton", 420, 440);
-
-            stage.addChild(this);
+           
+           
             this.TruckCollided = false;
 
             this._ground = new objects.ground();
@@ -45,6 +48,12 @@
 
             this._smallCar = new objects.smallCar();
             this.addChild(this._smallCar);
+
+            this._gun = new objects.gun();
+            this.addChild(this._gun);
+
+            this._bullet = new objects.bullet();
+            this.addChild(this._bullet);
 
             this._trucks[1] = new objects.truck("truck2");
             this.addChild(this._trucks[1]);
@@ -78,7 +87,7 @@
         }
 
         public update(): void {
-
+            
 
             this.addChild(this._trucks[0]);
             this.addChild(this._trucks[1]);
@@ -117,6 +126,7 @@
             this._fuel.update();
             this._car.update();
             this._smallCar.update();
+            this._bullet.update();
             // this.TruckCollided = this._collision._Truckcollision(this._trucks[0], this._trucks[1]);
             this._collision.update(this._car, this._trucks[1]);
             this._collision.update(this._car, this._trucks[0]);

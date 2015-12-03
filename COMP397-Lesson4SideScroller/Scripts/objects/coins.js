@@ -24,10 +24,6 @@ var objects;
             if (this.y >= (480 + this._heigth))
                 this.reset();
         };
-        coins.prototype.destroy = function () {
-            createjs.Sound.play("");
-            game.removeChild();
-        };
         return coins;
     })(objects.GameObject);
     objects.coins = coins;

@@ -19,6 +19,7 @@ var menu: states.Menu;
 var game: states.Game;
 var game2: states.game2;
 var over: states.Over;
+var state: number;
 var instruction: states.instruction;
 var data = {
 
@@ -26,37 +27,43 @@ var data = {
         "../../Assets/images/atlas.png"
     ],
 
+
     "frames": [
         [2, 2, 70, 146, 0, 0, 0],
         [2, 150, 149, 50, 0, 0, 0],
         [2, 202, 149, 50, 0, 0, 0],
         [74, 2, 70, 140, 0, 0, 0],
         [146, 2, 149, 50, 0, 0, 0],
-        [297, 2, 65, 100, 0, 0, 0],
-        [146, 54, 149, 50, 0, 0, 0],
-        [297, 104, 65, 80, 0, 0, 0],
+        [297, 2, 40, 50, 0, 0, 0],
+        [339, 2, 15, 8, 0, 0, 0],
+        [146, 54, 130, 50, 0, 0, 0],
         [146, 106, 30, 30, 0, 0, 0],
-        [153, 138, 67, 108, 0, 0, 0],
+        [278, 54, 67, 108, 0, 0, 0],
+        [153, 138, 65, 100, 0, 0, 0],
         [178, 106, 30, 29, 0, 0, 0],
-        [222, 106, 70, 70, 0, 0, 0],
-        [222, 178, 40, 50, 0, 0, 0]
+        [220, 106, 30, 49, 0, 0, 0],
+        [220, 164, 65, 80, 0, 0, 0],
+        [287, 164, 70, 70, 0, 0, 0]
     ],
 
     "animations": {
         "truck1": [0],
         "BackButton": [1],
-        "NextButton": [2],
+        "StartButton": [2],
         "truck2": [3],
-        "StartButton": [4],
-        "truck3": [5],
-        "instructionButton": [6],
-        "car": [7],
+        "instructionButton": [4],
+        "fuel": [5],
+        "bullet1": [6],
+        "NextButton": [7],
         "SmallCar": [8],
         "truck4": [9],
-        "coins": [10],
-        "collision": [11],
-        "fuel": [12]
+        "truck3": [10],
+        "coins": [11],
+        "gun": [12],
+        "car": [13],
+        "collision": [14]
     }
+
 };
 
 // manifest of all our assets
@@ -133,12 +140,14 @@ function changeState(state): void {
             // show the play scene
             stage.removeAllChildren();
             game = new states.Game();
-            currentState = game;
+            currentState = game
+            state = 1;
             break;
         case config.PLAY_STATE2:
             // show the play scene
            stage.removeAllChildren();
-            game2 = new states.game2();
+           game2 = new states.game2();
+           state = 2;
             currentState = game2;
            
             break;
