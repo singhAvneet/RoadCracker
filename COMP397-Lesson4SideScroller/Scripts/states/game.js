@@ -21,12 +21,15 @@ var states;
         Game.prototype.start = function () {
             scoreboard.setLives(15);
             scoreboard.setScore(100);
+            this.TruckCollided = false;
             this._ocean = new objects.ocean();
             this.addChild(this._ocean);
             this._track = new objects.track();
             this.addChild(this._track);
             this._trucks[0] = new objects.truck("truck1");
             this.addChild(this._trucks[0]);
+            this._smallCar = new objects.smallCar();
+            this.addChild(this._smallCar);
             this._trucks[1] = new objects.truck("truck2");
             this.addChild(this._trucks[1]);
             this._car = new objects.car();
@@ -48,38 +51,42 @@ var states;
                         */
         };
         Game.prototype.update = function () {
-            if (this.TruckCollided) {
-                this.addChild(this._trucks[0]);
-                this.addChild(this._trucks[1]);
-            }
+            this.addChild(this._trucks[0]);
+            this.addChild(this._trucks[1]);
             if (scoreboard.getLives() < 10 || scoreboard.getScore() < 100) {
                 this.addChild(this._coins);
                 this.addChild(this._fuel);
             }
             this._ocean.update();
             this._track.update();
-            if (Math.floor(Math.random() * 7) === 2) {
-                this._trucks[0].update();
-            }
-            else {
-                this._trucks[1].update();
-            }
-            if (scoreboard.getScore() > 1000)
-                if (Math.floor(Math.random() * 3) === 2) {
+            this._trucks[1].update();
+            this._trucks[0].update();
+            /*
+                if (Math.floor(Math.random() * 7) === 2) {
                     this._trucks[0].update();
                 }
                 else {
                     this._trucks[1].update();
                 }
+    
+                  if(scoreboard.getScore()>1000)
+                if (Math.floor(Math.random() * 3) === 2) {
+                    this._trucks[1].update();
+                }
+                else {
+                    this._trucks[0].update();
+                }
+                */
             this._coins.update();
             this._fuel.update();
             this._car.update();
-            this.TruckCollided = this._collision._Truckcollision(this._trucks[0], this._trucks[1]);
+            this._smallCar.update();
+            // this.TruckCollided = this._collision._Truckcollision(this._trucks[0], this._trucks[1]);
             this._collision.update(this._car, this._trucks[1]);
             this._collision.update(this._car, this._trucks[0]);
             this._collision.update(this._car, this._coins);
             this._collision.update(this._car, this._fuel);
-            // this._collision.update(this._trucks[0], this._trucks[1]);
+            this._collision.update(this._trucks[0], this._trucks[1]);
             /*
            
         // Callback function / Event Handler for Next Button Click
@@ -88,8 +95,15 @@ var states;
         }
         */
             this.updateScore();
-            if (scoreboard.getLives() <= -1) {
+            if (this._smallCar.gety() < 0) {
                 this._car.destroy();
+                this.removeAllChildren();
+                //  currentState = constants.GAME_OVER_STATE;
+                changeState(config.OVER_STATE);
+            }
+            if (scoreboard.getLives() <= -1 || this._smallCar.gety() < 0) {
+                this._car.destroy();
+                this.removeAllChildren();
                 //  currentState = constants.GAME_OVER_STATE;
                 changeState(config.OVER_STATE);
             }

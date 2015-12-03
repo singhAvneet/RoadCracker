@@ -4,6 +4,7 @@
         // PRIVATE INSTANCE VARIABLES
         private _ocean: objects.ocean;
         private _track: objects.track;
+        private _smallCar: objects.smallCar;
        // private _truck: objects.truck;
         private _trucks: objects.truck[]=[];
         private _coins: objects.coins;
@@ -27,6 +28,7 @@
 
             scoreboard.setLives(15);
             scoreboard.setScore(100);
+            this.TruckCollided = false;
 
             this._ocean = new objects.ocean();
             this.addChild(this._ocean);
@@ -36,6 +38,9 @@
                                  
             this._trucks[0] = new objects.truck("truck1");
             this.addChild(this._trucks[0]);
+
+            this._smallCar = new objects.smallCar();
+            this.addChild(this._smallCar);
 
             this._trucks[1] = new objects.truck("truck2");
             this.addChild(this._trucks[1]);            
@@ -69,47 +74,52 @@
         }
 
         public update(): void {
-            if (this.TruckCollided) {
+            
+           
                 this.addChild(this._trucks[0]);
                 this.addChild(this._trucks[1]);
-            }
+           
 
 
             if (scoreboard.getLives() < 10||scoreboard.getScore()<100) {
                 this.addChild(this._coins);
                 this.addChild(this._fuel);
             }
-
+           
 
 
             this._ocean.update();
             this._track.update();
-            
+            this._trucks[1].update();
+            this._trucks[0].update();
+        /*    
             if (Math.floor(Math.random() * 7) === 2) {
                 this._trucks[0].update();
             }
             else {
                 this._trucks[1].update();
             }
-            if(scoreboard.getScore()>1000)
+
+              if(scoreboard.getScore()>1000)
             if (Math.floor(Math.random() * 3) === 2) {
-                this._trucks[0].update();               
+                this._trucks[1].update();               
             }
             else {
-                this._trucks[1].update();
+                this._trucks[0].update();
             }
-
+            */
 
             this._coins.update();
             this._fuel.update();
             this._car.update();
-            this.TruckCollided = this._collision._Truckcollision(this._trucks[0], this._trucks[1]);
+            this._smallCar.update();
+           // this.TruckCollided = this._collision._Truckcollision(this._trucks[0], this._trucks[1]);
             this._collision.update(this._car, this._trucks[1]);
             this._collision.update(this._car, this._trucks[0]);
             this._collision.update(this._car, this._coins);
             this._collision.update(this._car, this._fuel);
             
-           // this._collision.update(this._trucks[0], this._trucks[1]);
+            this._collision.update(this._trucks[0], this._trucks[1]);
                 /*
                
             // Callback function / Event Handler for Next Button Click
@@ -119,9 +129,16 @@
             */
             this.updateScore();
 
-            if (scoreboard.getLives() <=-1 ) {
+            if ( this._smallCar.gety() < 0) {
                 this._car.destroy();
-                
+                this.removeAllChildren();
+                //  currentState = constants.GAME_OVER_STATE;
+                changeState(config.OVER_STATE);
+            }
+
+            if (scoreboard.getLives() <=-1 || this._smallCar.gety()<0) {
+                this._car.destroy();
+                this.removeAllChildren();
               //  currentState = constants.GAME_OVER_STATE;
                 changeState(config.OVER_STATE);
             }

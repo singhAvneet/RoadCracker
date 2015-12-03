@@ -14,6 +14,7 @@
         }
        public destroy():void {
            this._engineSound.stop();
+           
          //   game.removeChild();
         }
     }

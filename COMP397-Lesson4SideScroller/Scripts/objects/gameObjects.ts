@@ -53,6 +53,12 @@
        public setTCollision(isCollided: boolean) {
            this._truckColliding = isCollided;
        }
+
+       public rst(): void {
+         
+           this.x = Math.floor((Math.random() * 250) + 200);
+           this.y = -this._heigth;
+       }
     }
 
 }

@@ -5,18 +5,13 @@
        
         constructor(str:string) {
             super(str);
-            this.dy = 5;
+            this.dy = 2;
             this.reset();
 
         }
        
         public update(): void {
-            
-           
-
-
             if (this.x > 209.00 && this.x < 412) {
-
                 this.x += this.dx;
             }
 
@@ -24,7 +19,7 @@
             this.checkbound();
 
         }
-        private reset(): void {
+        public reset(): void {
             this.dx = Math.floor(Math.random() * 4) - 2;
             this.dy = Math.floor(Math.random() * 5) +5;
             this.x = Math.floor((Math.random() * 250) + 200);

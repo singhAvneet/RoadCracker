@@ -72,6 +72,7 @@
     <Content Include="Assets\images\fuel.png" />
     <Content Include="Assets\images\NextButton.png" />
     <Content Include="Assets\images\ocean.gif" />
+    <Content Include="Assets\images\START.png" />
     <Content Include="Assets\images\StartButton.png" />
     <Content Include="Assets\images\track.png" />
     <Content Include="Assets\images\truck1.png" />
@@ -120,6 +121,8 @@
   <ItemGroup />
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\config\config.ts" />
+    <TypeScriptCompile Include="Scripts\config\controlls.ts" />
+    <TypeScriptCompile Include="Scripts\config\keys.ts" />
     <TypeScriptCompile Include="Scripts\core\game.ts" />
     <TypeScriptCompile Include="Scripts\core\references.ts" />
     <TypeScriptCompile Include="Scripts\managers\collision.ts" />
@@ -132,6 +135,7 @@
     <TypeScriptCompile Include="Scripts\objects\label.ts" />
     <TypeScriptCompile Include="Scripts\objects\ocean.ts" />
     <TypeScriptCompile Include="Scripts\objects\scene.ts" />
+    <TypeScriptCompile Include="Scripts\objects\smallCar.ts" />
     <TypeScriptCompile Include="Scripts\objects\track.ts" />
     <TypeScriptCompile Include="Scripts\objects\truck.ts" />
     <TypeScriptCompile Include="Scripts\states\game.ts" />

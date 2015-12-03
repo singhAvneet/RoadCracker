@@ -10,7 +10,7 @@ var managers;
             return Math.floor(Math.sqrt(Math.pow((p2.x - p1.x), 2) + Math.pow((p2.y - p1.y), 2)));
         };
         Collision.prototype._checkCollision = function (_player, object2) {
-            if (this._distance(_player.getPosition(), object2.getPosition()) < (object2.getHalfHeigth()) + (_player.getHalfHeigth()) * 0.5) {
+            if (this._distance(_player.getPosition(), object2.getPosition()) < (object2.getHalfHeigth()) + (_player.getHalfHeigth()) * 0.17) {
                 if (!object2.getCollision()) {
                     switch (object2.getObjectName()) {
                         case "coins":
@@ -22,22 +22,25 @@ var managers;
                             game.addChild(this._tile1);
                             game.removeChild(object2);
                             break;
-                        case "truck2":
-                            createjs.Sound.play("blast");
-                            scoreboard.removescore(100);
-                            scoreboard.removeLives(1);
-                            //stage.removeChild(object2);    
-                            break;
                         case "truck1":
                             createjs.Sound.play("blast");
                             scoreboard.removescore(50);
                             scoreboard.removeLives(1);
+                            object2.rst();
                             break;
                         case "fuel":
                             scoreboard.addLives(2);
-                            //    scoreboard.addScore(50);
-                            console.log("fuel");
                             game.removeChild(object2);
+                            break;
+                        case "truck2":
+                            createjs.Sound.play("blast");
+                            if (_player.getObjectName() == "car")
+                                object2.rst();
+                            else {
+                                object2.rst();
+                                _player.rst();
+                            }
+                            scoreboard.removeLives(1);
                             break;
                     }
                     object2.setCollision(true);
@@ -49,11 +52,15 @@ var managers;
             }
         };
         Collision.prototype._Truckcollision = function (truck1, truck2) {
-            if (this._distance(truck1.getPosition(), truck2.getPosition()) < (truck2.getHalfHeigth()) + (truck2.getHalfHeigth())) {
+            if (this._distance(truck1.getPosition(), truck2.getPosition()) <
+                (truck2.getHalfHeigth()) + (truck2.getHalfHeigth())) {
                 if (!truck2.getTCollision()) {
-                    createjs.Sound.play("blast");
-                    game.removeChild(truck2);
-                    game.removeChild(truck1);
+                    //     createjs.Sound.play("blast");
+                    //  game.removeChild(truck2);  
+                    //game.removeChild(truck1);
+                    //   truck1.y = -80;
+                    truck1.reset();
+                    truck2.reset();
                 }
                 truck2.setTCollision(true);
                 return true;

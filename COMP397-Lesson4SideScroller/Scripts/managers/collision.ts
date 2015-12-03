@@ -22,7 +22,7 @@
 
         }
         private _checkCollision(_player: objects.GameObject, object2: objects.GameObject): void {
-            if (this._distance(_player.getPosition(), object2.getPosition()) < (object2.getHalfHeigth())+(_player.getHalfHeigth())*0.5)//
+            if (this._distance(_player.getPosition(), object2.getPosition()) < (object2.getHalfHeigth())+(_player.getHalfHeigth())*0.17)//
             {
                 if (!object2.getCollision()) {
                     switch (object2.getObjectName()) {
@@ -36,24 +36,30 @@
                             game.removeChild(object2);
                             break;
 
-                        case "truck2":
-                            createjs.Sound.play("blast");
-                            scoreboard.removescore(100);
-                            scoreboard.removeLives(1);
-                            //stage.removeChild(object2);    
-                            break;
+                     
                         case "truck1":
                             createjs.Sound.play("blast");
                             scoreboard.removescore(50);
                             scoreboard.removeLives(1);
-
+                            object2.rst();
                             break;
                         case "fuel":
                             scoreboard.addLives(2);
-                            //    scoreboard.addScore(50);
-                            console.log("fuel");
+                            
                             game.removeChild(object2);
                             break;
+
+                        case "truck2":
+                            createjs.Sound.play("blast");
+                            if (_player.getObjectName() == "car")
+                                object2.rst();
+                            else {
+                                object2.rst();
+                                _player.rst();
+                            }
+                            scoreboard.removeLives(1);
+                            break;
+
                     }
                     object2.setCollision(true);
                 }
@@ -65,15 +71,21 @@
 
 
         }
-         _Truckcollision(truck1: objects.GameObject, truck2: objects.GameObject): boolean {
-            if (this._distance(truck1.getPosition(), truck2.getPosition()) < (truck2.getHalfHeigth())+(truck2.getHalfHeigth()))//
+        public _Truckcollision(truck1: objects.truck, truck2: objects.truck): boolean {
+            if (this._distance(truck1.getPosition(), truck2.getPosition()) <
+                (truck2.getHalfHeigth()) + (truck2.getHalfHeigth()))//
             {
                 if (!truck2.getTCollision()) {
                    
-                            createjs.Sound.play("blast");
+                       //     createjs.Sound.play("blast");
                            
-                            game.removeChild(truck2);  
-                            game.removeChild(truck1);    
+                          //  game.removeChild(truck2);  
+                            //game.removeChild(truck1);
+                         //   truck1.y = -80;
+                    truck1.reset();
+                    truck2.reset();
+                            //stage.removeChild(truck1);
+                            //stage.removeChild(truck2);
                         
                     }
                 truck2.setTCollision(true);

@@ -9,7 +9,7 @@ var objects;
         __extends(truck, _super);
         function truck(str) {
             _super.call(this, str);
-            this.dy = 5;
+            this.dy = 2;
             this.reset();
         }
         truck.prototype.update = function () {

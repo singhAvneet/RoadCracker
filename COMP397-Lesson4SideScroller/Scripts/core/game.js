@@ -22,13 +22,14 @@ var data = {
         [2, 150, 150, 50, 0, 0, 0],
         [2, 202, 150, 50, 0, 0, 0],
         [74, 2, 70, 140, 0, 0, 0],
-        [146, 2, 150, 50, 0, 0, 0],
+        [146, 2, 149, 50, 0, 0, 0],
+        [297, 2, 40, 50, 0, 0, 0],
         [146, 54, 65, 80, 0, 0, 0],
         [154, 136, 67, 108, 0, 0, 0],
         [213, 54, 70, 70, 0, 0, 0],
-        [285, 54, 40, 50, 0, 0, 0],
-        [285, 106, 30, 29, 0, 0, 0],
-        [223, 137, 65, 100, 0, 0, 0]
+        [223, 126, 65, 100, 0, 0, 0],
+        [285, 54, 30, 30, 0, 0, 0],
+        [285, 86, 30, 29, 0, 0, 0]
     ],
     "animations": {
         "truck1": [0],
@@ -36,12 +37,13 @@ var data = {
         "NextButton": [2],
         "truck2": [3],
         "StartButton": [4],
-        "car": [5],
-        "truck4": [6],
-        "collision": [7],
-        "fuel": [8],
-        "coins": [9],
-        "truck3": [10]
+        "fuel": [5],
+        "car": [6],
+        "truck4": [7],
+        "collision": [8],
+        "truck3": [9],
+        "SmallCar": [10],
+        "coins": [11]
     }
 };
 // manifest of all our assets
@@ -49,7 +51,7 @@ var manifest = [
     { id: "welcome", src: "../../Assets/images/welcome.png" },
     { id: "track", src: "../../Assets/images/track.png" },
     { id: "ocean", src: "../../Assets/images/ocean.gif" },
-    //  { id: "StartButton", src: "../../Assets/images/StartButton.png" },
+    { id: "START", src: "../../Assets/images/START.png" },
     { id: "engine", src: "../../Assets/audio/engine.ogg" },
     { id: "thunder", src: "../../Assets/audio/thunder.ogg" },
     { id: "blast", src: "Assets/audio/blast.wav" },

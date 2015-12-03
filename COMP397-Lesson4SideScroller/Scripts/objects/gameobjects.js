@@ -40,6 +40,10 @@ var objects;
         GameObject.prototype.setTCollision = function (isCollided) {
             this._truckColliding = isCollided;
         };
+        GameObject.prototype.rst = function () {
+            this.x = Math.floor((Math.random() * 250) + 200);
+            this.y = -this._heigth;
+        };
         return GameObject;
     })(createjs.Sprite);
     objects.GameObject = GameObject;

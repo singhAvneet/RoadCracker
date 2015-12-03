@@ -20,6 +20,7 @@ var states;
             this.addChild(this._helloLabel); // add label to the stage
             // start button
             this._startButton = new objects.Button("StartButton", 320, 340);
+            //     this._startButton = new createjs.Bitmap("START");
             this._startButton.on("click", this._clickStartButton, this); // event listener
             this.addChild(this._startButton);
             stage.addChild(this);
