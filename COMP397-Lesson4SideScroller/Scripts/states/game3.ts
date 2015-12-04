@@ -1,10 +1,9 @@
 ﻿module states {
     // GAME CLASS
-    export class game2 extends objects.Scene {
+    export class game3 extends objects.Scene {
         // PRIVATE INSTANCE VARIABLES
-        private _ground: objects.ground;
-        private _ocean: objects.ocean;
-        private _track: objects.track;
+        private _desert: objects.desert;
+       
         private _smallCar: objects.smallCar;
         // private _truck: objects.truck;
         private _trucks: objects.truck[] = [];
@@ -29,19 +28,20 @@
 
         // PUBLIC METHODS
         public start(): void {
-            state = 2;
+            state = 3;
             scoreboard.setLives(15);
             scoreboard.setScore(100);
             this._nextButton = new objects.Button("NextButton", 420, 440);
-           
-           
+
+
             this.TruckCollided = false;
 
-            this._ground = new objects.ground();
-            this.addChild(this._ground);
+           
 
-            this._track = new objects.track();
-            this.addChild(this._track);
+            this._desert = new objects.desert();
+            this.addChild(this._desert);
+
+           
 
             this._trucks[0] = new objects.truck("truck1");
             this.addChild(this._trucks[0]);
@@ -87,8 +87,8 @@
         }
 
         public update(): void {
-            
 
+            this._desert.update();
             this.addChild(this._trucks[0]);
             this.addChild(this._trucks[1]);
 
@@ -101,8 +101,7 @@
 
 
 
-            this._ground.update();
-            this._track.update();
+           
             this._trucks[1].update();
             this._trucks[0].update();
             /*    
@@ -127,20 +126,14 @@
             this._car.update();
             this._smallCar.update();
             this._bullet.update();
-            // this.TruckCollided = this._collision._Truckcollision(this._trucks[0], this._trucks[1]);
+           
             this._collision.update(this._car, this._trucks[1]);
             this._collision.update(this._car, this._trucks[0]);
             this._collision.update(this._car, this._coins);
             this._collision.update(this._car, this._fuel);
 
             this._collision.update(this._trucks[0], this._trucks[1]);
-            /*
-           
-        // Callback function / Event Handler for Next Button Click
-        private _clickNextButton(event: createjs.MouseEvent): void {
-            changeState(config.OVER_STATE);
-        }
-        */
+    
             this.updateScore();
 
             if (this._smallCar.gety() < 0) {
@@ -165,9 +158,9 @@
             this._scoreLabel.text = "Score: " + scoreboard.getScore();
         }
         private _clickNextButton(event: createjs.MouseEvent): void {
-            changeState(config.PLAY_STATE3);
+            changeState(config.OVER_STATE);
             this.removeAllChildren();
         }
 
     }
-} 
+}  

@@ -9,7 +9,7 @@ var objects;
         __extends(gun, _super);
         function gun() {
             _super.call(this, "gun");
-            this.y = 380;
+            this.y = 300;
             this.x = 630;
         }
         gun.prototype.update = function () {

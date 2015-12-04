@@ -147,7 +147,7 @@
                 this._car.destroy();
                 this.removeAllChildren();
               //  currentState = constants.GAME_OVER_STATE;
-                changeState(config.PLAY_STATE2);
+                changeState(config.OVER_STATE);
             }
         }
 

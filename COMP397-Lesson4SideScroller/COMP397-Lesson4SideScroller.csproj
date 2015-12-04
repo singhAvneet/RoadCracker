@@ -68,6 +68,7 @@
     <Content Include="Assets\images\car.png" />
     <Content Include="Assets\images\coins.png" />
     <Content Include="Assets\images\collision.png" />
+    <Content Include="Assets\images\desert.png" />
     <Content Include="Assets\images\ending.png" />
     <Content Include="Assets\images\fuel.png" />
     <Content Include="Assets\images\ground.png" />
@@ -132,6 +133,8 @@
     <TypeScriptCompile Include="Scripts\objects\button.ts" />
     <TypeScriptCompile Include="Scripts\objects\car.ts" />
     <TypeScriptCompile Include="Scripts\objects\coins.ts" />
+    <TypeScriptCompile Include="Scripts\objects\collision.ts" />
+    <TypeScriptCompile Include="Scripts\objects\desert.ts" />
     <TypeScriptCompile Include="Scripts\objects\fuel.ts" />
     <TypeScriptCompile Include="Scripts\objects\gameObjects.ts" />
     <TypeScriptCompile Include="Scripts\objects\ground.ts" />
@@ -144,6 +147,7 @@
     <TypeScriptCompile Include="Scripts\objects\truck.ts" />
     <TypeScriptCompile Include="Scripts\states\game.ts" />
     <TypeScriptCompile Include="Scripts\states\game2.ts" />
+    <TypeScriptCompile Include="Scripts\states\game3.ts" />
     <TypeScriptCompile Include="Scripts\states\instruction.ts" />
     <TypeScriptCompile Include="Scripts\states\menu.ts" />
     <TypeScriptCompile Include="Scripts\states\over.ts" />

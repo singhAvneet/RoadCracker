@@ -18,6 +18,7 @@ var scoreboard: managers.Scorecard;
 var menu: states.Menu;
 var game: states.Game;
 var game2: states.game2;
+var game3: states.game3;
 var over: states.Over;
 var state: number;
 var instruction: states.instruction;
@@ -26,7 +27,6 @@ var data = {
     "images": [
         "../../Assets/images/atlas.png"
     ],
-
 
     "frames": [
         [2, 2, 70, 146, 0, 0, 0],
@@ -71,6 +71,7 @@ var manifest = [
     { id: "welcome", src: "../../Assets/images/welcome.png" },
     { id: "track", src: "../../Assets/images/track.png" },
     { id: "ocean", src: "../../Assets/images/ocean.gif" },
+    { id: "desert", src: "../../Assets/images/desert.png" },
     { id: "ground", src: "../../Assets/images/ground.png" },
     { id: "instruction", src: "../../Assets/images/INSTRUCTIONS.png" },
     { id: "engine", src: "../../Assets/audio/engine.ogg" },
@@ -97,20 +98,17 @@ function init():void {
     createjs.Ticker.setFPS(60); // set frame rate to 60 fps
     createjs.Ticker.on("tick", gameLoop); // update gameLoop every frame
     setupStats(); // sets up our stats counting
-
     scoreboard = new managers.Scorecard();
     state = config.MENU_STATE;
+  
     changeState(state);
 }
 
 // Main Game Loop
 function gameLoop(event: createjs.Event): void {
     stats.begin(); // start counting
-
-
     currentState.update(); // calling State's update method
     stage.update(); // redraw/refresh stage every frame
-
     stats.end(); // stop counting
 }
 
@@ -140,7 +138,7 @@ function changeState(state): void {
             // show the play scene
             stage.removeAllChildren();
             game = new states.Game();
-            currentState = game
+            currentState = game;
             state = 1;
             break;
         case config.PLAY_STATE2:
@@ -149,12 +147,13 @@ function changeState(state): void {
            game2 = new states.game2();
            state = 2;
             currentState = game2;
-           
             break;
         case config.PLAY_STATE3:
             // show the play scene
             stage.removeAllChildren();
-           
+            game3 = new states.game3();
+            state = 3;
+            currentState = game3;
             break;
         case config.OVER_STATE:
             // show the game over scene

@@ -3,7 +3,7 @@
         private _engineSound: createjs.AbstractSoundInstance;
         constructor() {
             super("gun");
-            this.y = 380;
+            this.y = 300;
             this.x = 630;
         }
 

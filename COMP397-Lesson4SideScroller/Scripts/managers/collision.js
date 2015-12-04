@@ -23,8 +23,10 @@ var managers;
                             if (state === 1) {
                                 game.removeChild(object2);
                             }
-                            else
+                            else if (state === 2)
                                 game2.removeChild(object2);
+                            else
+                                game3.removeChild(object2);
                             break;
                         case "truck1":
                             createjs.Sound.play("blast");
@@ -37,8 +39,10 @@ var managers;
                             if (state === 1) {
                                 game.removeChild(object2);
                             }
-                            else
+                            else if (state === 2)
                                 game2.removeChild(object2);
+                            else
+                                game3.removeChild(object2);
                             break;
                         case "truck2":
                             createjs.Sound.play("blast");

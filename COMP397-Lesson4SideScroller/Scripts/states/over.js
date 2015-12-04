@@ -32,6 +32,7 @@ var states;
         // Callback function / Event Handler for Back Button Click
         Over.prototype._clickBackButton = function (event) {
             changeState(config.PLAY_STATE);
+            state = 1;
         };
         return Over;
     })(objects.Scene);

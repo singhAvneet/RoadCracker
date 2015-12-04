@@ -14,13 +14,15 @@ var objects;
         }
         bullet.prototype.update = function () {
             this.x -= 1;
-            this.y += 0.5;
+            this.y += 0.4;
             this.checkbound();
         };
         bullet.prototype.reset = function () {
+            this.y = 280;
+            this.x = 620;
         };
         bullet.prototype.checkbound = function () {
-            if (this.x >= 480)
+            if (this.x <= 200)
                 this.reset();
         };
         return bullet;

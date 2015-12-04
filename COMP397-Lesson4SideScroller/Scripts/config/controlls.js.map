@@ -1,1 +1,1 @@
-{"version":3,"file":"controlls.js","sourceRoot":"","sources":["controlls.ts"],"names":[],"mappings":"AAGC"}
+{"version":3,"file":"controlls.js","sourceRoot":"","sources":["controlls.ts"],"names":["controlls"],"mappings":"AAAA,IAAO,SAAS,CAOf;AAPD,WAAO,SAAS,EAAC,CAAC;IAEdA,0CAA0CA;IAC/BA,cAAIA,GAAYA,KAAKA,CAACA;IACtBA,eAAKA,GAAYA,KAAKA,CAACA;IACvBA,YAAEA,GAAYA,KAAKA,CAACA;IACpBA,cAAIA,GAAYA,KAAKA,CAACA;AACrCA,CAACA,EAPM,SAAS,KAAT,SAAS,QAOf"}

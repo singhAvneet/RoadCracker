@@ -13,6 +13,7 @@ var scoreboard;
 var menu;
 var game;
 var game2;
+var game3;
 var over;
 var state;
 var instruction;
@@ -60,6 +61,7 @@ var manifest = [
     { id: "welcome", src: "../../Assets/images/welcome.png" },
     { id: "track", src: "../../Assets/images/track.png" },
     { id: "ocean", src: "../../Assets/images/ocean.gif" },
+    { id: "desert", src: "../../Assets/images/desert.png" },
     { id: "ground", src: "../../Assets/images/ground.png" },
     { id: "instruction", src: "../../Assets/images/INSTRUCTIONS.png" },
     { id: "engine", src: "../../Assets/audio/engine.ogg" },
@@ -131,6 +133,9 @@ function changeState(state) {
         case config.PLAY_STATE3:
             // show the play scene
             stage.removeAllChildren();
+            game3 = new states.game3();
+            state = 3;
+            currentState = game3;
             break;
         case config.OVER_STATE:
             // show the game over scene

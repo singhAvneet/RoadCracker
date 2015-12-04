@@ -39,6 +39,7 @@
         // Callback function / Event Handler for Back Button Click
         private _clickBackButton(event: createjs.MouseEvent): void {
             changeState(config.PLAY_STATE);
+            state = 1;
         }
 
 

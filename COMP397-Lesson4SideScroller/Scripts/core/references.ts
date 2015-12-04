@@ -1,4 +1,7 @@
 ﻿ /// <reference path="../config/config.ts" />
+/// <reference path="../config/controlls.ts" />
+/// <reference path="../config/keys.ts" />
+
 
 /// <reference path="../typings/jquery/jquery.d.ts" />
 /// <reference path="../typings/stats/stats.d.ts" />
@@ -26,9 +29,12 @@
 /// <reference path="../objects/gun.ts" />
 /// <reference path="../objects/ocean.ts" />
 /// <reference path="../objects/ground.ts" />
+/// <reference path="../objects/desert.ts" />
+
 
 /// <reference path="../objects/scene.ts" />
 /// <reference path="../states/game2.ts" />
+/// <reference path="../states/game3.ts" />
 /// <reference path="../states/over.ts" />
 /// <reference path="../states/game.ts" />
 

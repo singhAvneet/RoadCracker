@@ -120,7 +120,7 @@ var states;
             this._scoreLabel.text = "Score: " + scoreboard.getScore();
         };
         game2.prototype._clickNextButton = function (event) {
-            changeState(config.OVER_STATE);
+            changeState(config.PLAY_STATE3);
             this.removeAllChildren();
         };
         return game2;

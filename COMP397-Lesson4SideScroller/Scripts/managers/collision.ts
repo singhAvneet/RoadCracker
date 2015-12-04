@@ -1,19 +1,17 @@
 ﻿module managers {
     export class Collision  {
-        private coins: objects.coins;
-       // private game: createjs.Container;
-        private _tile1: createjs.Bitmap;
+        private blast: objects.collision;
 
         constructor() {
-         
+            
 
         }
 
         update(_player: objects.GameObject, object2: objects.GameObject): void {
             this._checkCollision(_player, object2);
+            
+
           
-
-
 
         }
 
@@ -35,11 +33,13 @@
                            // game2.addChild(this._tile1);
                             
                    
-                            if (state===1) {
+                            if (state === 1) {
                                 game.removeChild(object2);
                             }
-                            else
+                            else if (state === 2)
                                 game2.removeChild(object2);
+                            else
+                                game3.removeChild(object2);
                             break;
 
                      
@@ -54,9 +54,10 @@
                             if (state === 1) {
                                 game.removeChild(object2);
                             }
-                            else
+                            else if (state === 2)
                                 game2.removeChild(object2);
-                           
+                            else
+                                game3.removeChild(object2);
                             break;
 
                         case "truck2":
