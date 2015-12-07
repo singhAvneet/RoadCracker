@@ -2,11 +2,14 @@ var managers;
 (function (managers) {
     var Collision = (function () {
         function Collision() {
+            this._blast = new objects.collision("collision");
         }
         Collision.prototype.update = function (_player, object2) {
             this._checkCollision(_player, object2);
         };
         Collision.prototype._distance = function (p1, p2) {
+            this._p1 = p1;
+            this._p2 = p2;
             return Math.floor(Math.sqrt(Math.pow((p2.x - p1.x), 2) + Math.pow((p2.y - p1.y), 2)));
         };
         Collision.prototype._checkCollision = function (_player, object2) {
@@ -63,24 +66,21 @@ var managers;
                 }
             }
         };
-        Collision.prototype._Truckcollision = function (truck1, truck2) {
-            if (this._distance(truck1.getPosition(), truck2.getPosition()) <
-                (truck2.getHalfHeigth()) + (truck2.getHalfHeigth())) {
-                if (!truck2.getTCollision()) {
-                    //     createjs.Sound.play("blast");
-                    //  game.removeChild(truck2);  
-                    //game.removeChild(truck1);
-                    //   truck1.y = -80;
-                    truck1.reset();
-                    truck2.reset();
-                }
-                truck2.setTCollision(true);
-                return true;
+        Collision.prototype._Truckcollision = function (truck1, truck2, blast) {
+            //  if (this._distance(truck1.getX(), truck2.getPosition()))
+            if (this._distance(truck1.getPosition(), truck2.getPosition()) < (truck2.getHalfHeigth()) + (truck2.getHalfHeigth()) * 0.27) {
+                //  truck1.rst1(this._p1,this._p2);
+                // truck2.rst1(this._p1, this._p2
+                this._p1.x = truck1.getPosition().x;
+                this._p1.y = truck2.getPosition().y;
+                //     blast = new objects.collision("collision");
+                //  game.addChild(blast);
+                //blast.update(truck1.getPosition());
+                TruckCollided1 = true;
+                truck1.rst();
+                truck2.rst();
             }
-            else {
-                truck2.setTCollision(false);
-                return false;
-            }
+            return this._p1;
         };
         return Collision;
     })();

@@ -16,6 +16,9 @@ var game2;
 var game3;
 var over;
 var state;
+var TruckCollided1;
+var TruckCollided2;
+var p1;
 var instruction;
 var data = {
     "images": [
@@ -69,8 +72,7 @@ var manifest = [
     { id: "blast", src: "Assets/audio/blast.wav" },
     { id: "coin", src: "Assets/audio/coin.flac" },
     { id: "drift", src: "../../Assets/audio/drift.wav" },
-    { id: "ending", src: "../../Assets/images/ending.png" },
-    { id: "collision", src: "../../Assets/images/collision.png" }
+    { id: "ending", src: "../../Assets/images/ending.png" }
 ];
 function preload() {
     assets = new createjs.LoadQueue();
@@ -111,13 +113,13 @@ function changeState(state) {
     // Launch various scenes
     switch (state) {
         case config.MENU_STATE:
-            // show the menu scene
+            TruckCollided1 = false;
             stage.removeAllChildren();
             menu = new states.Menu();
             currentState = menu;
             break;
         case config.PLAY_STATE:
-            // show the play scene
+            TruckCollided1 = false;
             stage.removeAllChildren();
             game = new states.Game();
             currentState = game;

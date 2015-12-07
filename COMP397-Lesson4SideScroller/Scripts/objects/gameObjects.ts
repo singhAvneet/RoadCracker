@@ -8,6 +8,8 @@
        protected _truckColliding: boolean;
        protected objectName: string;
        protected game2: createjs.Container;
+       protected blast: objects.collision;
+      
 
        constructor(imageString: string)
         {
@@ -28,6 +30,10 @@
        public getPosition(): createjs.Point {
            var position: createjs.Point = new createjs.Point(this.x, this.y);
            return position;
+       }
+       public setPosition(p1:createjs.Point): void{
+           this.x = p1.x;
+           this.y = p1.y;
        }
 
        public getHalfHeigth(): number {
@@ -53,13 +59,31 @@
        }
        public setTCollision(isCollided: boolean) {
            this._truckColliding = isCollided;
+
        }
 
        public rst(): void {
-         
            this.x = Math.floor((Math.random() * 250) + 200);
+
            this.y = -this._heigth;
        }
+       public rst1(p1: createjs.Point, p2: createjs.Point): void {
+
+        //   this.x = Math.floor((Math.random() * 250) + 200);
+         /*  if (p1.x < 136)
+               this.x -= 2;
+           else
+               this.x += 2;
+
+           if (p2.x > 136)
+               this.x += 2;
+           else
+               this.x -= 2;*/
+           //  this.y = -this._heigth;
+           
+
+       }
+      
    
     }
 

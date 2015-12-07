@@ -21,6 +21,9 @@ var game2: states.game2;
 var game3: states.game3;
 var over: states.Over;
 var state: number;
+var TruckCollided1: boolean;
+var TruckCollided2: boolean;
+var p1: createjs.Point;
 var instruction: states.instruction;
 var data = {
 
@@ -63,7 +66,6 @@ var data = {
         "car": [13],
         "collision": [14]
     }
-
 };
 
 // manifest of all our assets
@@ -79,8 +81,8 @@ var manifest = [
     { id: "blast", src: "Assets/audio/blast.wav" },
     { id: "coin", src: "Assets/audio/coin.flac" },
     { id: "drift", src: "../../Assets/audio/drift.wav" },
-    { id: "ending", src: "../../Assets/images/ending.png" },
-    { id: "collision", src: "../../Assets/images/collision.png" }
+    { id: "ending", src: "../../Assets/images/ending.png" }
+   // { id: "collision", src: "../../Assets/images/collision.png" }
 ];
 
 function preload(): void {
@@ -129,13 +131,13 @@ function changeState(state): void {
 
     switch (state) {
         case config.MENU_STATE:
-            // show the menu scene
+            TruckCollided1 = false;
             stage.removeAllChildren();
             menu = new states.Menu();
             currentState = menu;
             break;
         case config.PLAY_STATE:
-            // show the play scene
+            TruckCollided1 = false;
             stage.removeAllChildren();
             game = new states.Game();
             currentState = game;

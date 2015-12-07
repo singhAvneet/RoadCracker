@@ -9,17 +9,28 @@ var objects;
         __extends(collision, _super);
         function collision(str) {
             _super.call(this, str);
-            this.update();
+            this.dy = 5;
+            this.reset();
         }
-        collision.prototype.update = function () {
-            this.y += 5;
-            this.checkbound();
+        collision.prototype.update = function (p) {
+            this.x = p.x;
+            this.y = p.y;
+            /*if (this.x > 209.00 && this.x < 412) {
+                this.x += this.dx;
+            }
+            */
+            TruckCollided1 = false;
         };
         collision.prototype.reset = function () {
+            this.y += this.dy;
+            if (this.y > 350) {
+                game.removeChild(this);
+                TruckCollided2 = false;
+            }
         };
         collision.prototype.checkbound = function () {
-            if (this.y >= (480 + this._heigth))
-                this.update();
+            if (this.y >= (480))
+                this.reset();
         };
         return collision;
     })(objects.GameObject);

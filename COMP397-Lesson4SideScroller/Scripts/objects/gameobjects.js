@@ -22,6 +22,10 @@ var objects;
             var position = new createjs.Point(this.x, this.y);
             return position;
         };
+        GameObject.prototype.setPosition = function (p1) {
+            this.x = p1.x;
+            this.y = p1.y;
+        };
         GameObject.prototype.getHalfHeigth = function () {
             return this._heigth * 0.5;
         };
@@ -43,6 +47,19 @@ var objects;
         GameObject.prototype.rst = function () {
             this.x = Math.floor((Math.random() * 250) + 200);
             this.y = -this._heigth;
+        };
+        GameObject.prototype.rst1 = function (p1, p2) {
+            //   this.x = Math.floor((Math.random() * 250) + 200);
+            /*  if (p1.x < 136)
+                  this.x -= 2;
+              else
+                  this.x += 2;
+   
+              if (p2.x > 136)
+                  this.x += 2;
+              else
+                  this.x -= 2;*/
+            //  this.y = -this._heigth;
         };
         return GameObject;
     })(createjs.Sprite);

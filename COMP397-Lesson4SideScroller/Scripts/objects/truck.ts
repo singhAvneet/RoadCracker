@@ -21,6 +21,7 @@
         }
         public reset(): void {
             this.dx = Math.floor(Math.random() * 4) - 2;
+           
             this.dy = Math.floor(Math.random() * 5) +5;
             this.x = Math.floor((Math.random() * 250) + 200);
             this.y = -this._heigth;

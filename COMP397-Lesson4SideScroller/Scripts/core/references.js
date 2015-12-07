@@ -16,6 +16,7 @@
 /// <reference path="../objects/car.ts" />
 /// <reference path="../objects/truck.ts" />
 /// <reference path="../objects/coins.ts" />
+/// <reference path="../objects/collision.ts" />
 /// <reference path="../objects/fuel.ts" />
 /// <reference path="../objects/track.ts" />
 /// <reference path="../objects/smallcar.ts" />
