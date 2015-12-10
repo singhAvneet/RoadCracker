@@ -36,6 +36,9 @@ var managers;
                             scoreboard.removescore(50);
                             scoreboard.removeLives(1);
                             object2.rst();
+                            carblast.update1(this._p2);
+                            game.addChild(carblast);
+                            carblast.reset();
                             break;
                         case "fuel":
                             scoreboard.addLives(2);
@@ -49,8 +52,12 @@ var managers;
                             break;
                         case "truck2":
                             createjs.Sound.play("blast");
-                            if (_player.getObjectName() == "car")
+                            if (_player.getObjectName() == "car") {
                                 object2.rst();
+                                carblast.update1(this._p2);
+                                game.addChild(carblast);
+                                carblast.reset();
+                            }
                             else {
                                 object2.rst();
                                 _player.rst();
@@ -78,7 +85,7 @@ var managers;
                 //blast.update(truck1.getPosition());
                 TruckCollided1 = true;
                 truck1.rst();
-                truck2.rst();
+                truck2.rst1();
             }
             return this._p1;
         };

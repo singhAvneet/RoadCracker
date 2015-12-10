@@ -22,8 +22,10 @@ var game3: states.game3;
 var over: states.Over;
 var state: number;
 var TruckCollided1: boolean;
-var TruckCollided2: boolean;
+var TruckCollided2: boolean;//tbd
 var p1: createjs.Point;
+var blast: objects.collision;
+var carblast: objects.collision;
 var instruction: states.instruction;
 var data = {
 

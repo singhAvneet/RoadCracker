@@ -10,8 +10,7 @@
 
         update(_player: objects.GameObject, object2: objects.GameObject): void {
             this._checkCollision(_player, object2);
-
-        }
+}
         private _distance(p1: createjs.Point, p2: createjs.Point): number {
             this._p1 = p1;
             this._p2 = p2;
@@ -45,6 +44,9 @@
                             scoreboard.removescore(50);
                             scoreboard.removeLives(1);
                             object2.rst();
+                            carblast.update1(this._p2);
+                            game.addChild(carblast);
+                            carblast.reset();
                             break;
                         case "fuel":
                             scoreboard.addLives(2);
@@ -55,13 +57,17 @@
                                 game2.removeChild(object2);
                             else
                                 game3.removeChild(object2);
+                            
                             break;
 
                         case "truck2":
                             createjs.Sound.play("blast");
-                            if (_player.getObjectName() == "car")
+                            if (_player.getObjectName() == "car") {
                                 object2.rst();
-                            else {
+                                carblast.update1(this._p2);
+                                game.addChild(carblast);
+                                carblast.reset();
+                            } else {
                                 object2.rst();
                                 _player.rst();
                             }
@@ -83,7 +89,6 @@
             if (this._distance(truck1.getPosition(), truck2.getPosition()) < (truck2.getHalfHeigth()) + (truck2.getHalfHeigth())*0.27) {
               //  truck1.rst1(this._p1,this._p2);
                // truck2.rst1(this._p1, this._p2
-                
                 this._p1.x = truck1.getPosition().x;
                 this._p1.y = truck2.getPosition().y;
           //     blast = new objects.collision("collision");
@@ -91,11 +96,8 @@
                 //blast.update(truck1.getPosition());
                 TruckCollided1 = true;
                 truck1.rst();
-                truck2.rst();
-                
-                
-
-            }
+                truck2.rst1();
+                }
             return this._p1;
             }
         }

@@ -48,7 +48,9 @@ var objects;
             this.x = Math.floor((Math.random() * 250) + 200);
             this.y = -this._heigth;
         };
-        GameObject.prototype.rst1 = function (p1, p2) {
+        GameObject.prototype.rst1 = function () {
+            this.x = Math.floor((Math.random() * 250) + 200);
+            this.y = 1000;
             //   this.x = Math.floor((Math.random() * 250) + 200);
             /*  if (p1.x < 136)
                   this.x -= 2;

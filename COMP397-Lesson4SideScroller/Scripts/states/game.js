@@ -40,8 +40,10 @@ var states;
             this.addChild(this._coins);
             this._fuel = new objects.fuel();
             this.addChild(this._fuel);
-            this.blast = new objects.collision("collision");
-            this.addChild(this.blast);
+            blast = new objects.collision("collision");
+            this.addChild(blast);
+            carblast = new objects.collision("collision");
+            this.addChild(carblast);
             this._scoreLabel = new objects.Label("Score: ", "40px " + config.FONT_FAMILY, config.FONT_COLOR, 5, 5, false);
             this.addChild(this._scoreLabel);
             this._livesLabel = new objects.Label("Lives: ", "40px " + config.FONT_FAMILY, config.FONT_COLOR, 350, 5, false);
@@ -56,10 +58,11 @@ var states;
         };
         Game.prototype.update = function () {
             if (TruckCollided1) {
-                this.blast.update(p1);
-                this.addChild(this.blast);
+                blast.update(p1);
+                this.addChild(blast);
             }
-            this.blast.reset();
+            blast.reset();
+            carblast.reset();
             //   this.addChild(this._trucks[0]);
             //  this.addChild(this._trucks[1]);
             if (scoreboard.getLives() < 10 || scoreboard.getScore() < 100) {
@@ -90,7 +93,7 @@ var states;
             this._fuel.update();
             this._car.update();
             this._smallCar.update();
-            p1 = this._collision._Truckcollision(this._trucks[0], this._trucks[1], this.blast);
+            p1 = this._collision._Truckcollision(this._trucks[0], this._trucks[1], blast);
             this._collision.update(this._car, this._trucks[1]);
             this._collision.update(this._car, this._trucks[0]);
             this._collision.update(this._car, this._coins);

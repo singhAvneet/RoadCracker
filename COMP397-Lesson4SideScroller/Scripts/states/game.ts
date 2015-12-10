@@ -13,7 +13,7 @@
         private _collision: managers.Collision;
        
         private _nextButton: objects.Button;
-        private blast: objects.collision;
+       
         _scoreLabel: objects.Label;
         _livesLabel: objects.Label;
       /*  _backButton: objects.Button;
@@ -31,8 +31,6 @@
             scoreboard.setScore(100);
             this._nextButton = new objects.Button("NextButton",420,440 );
             stage.addChild(this);
-
-           
 
             this._ocean = new objects.ocean();
             this.addChild(this._ocean);
@@ -55,12 +53,14 @@
             this._coins = new objects.coins("coins");
             this.addChild(this._coins);
 
-           this._fuel = new objects.fuel();
+            this._fuel = new objects.fuel();
             this.addChild(this._fuel);
 
 
-            this.blast = new objects.collision("collision");
-            this.addChild(this.blast);
+            blast = new objects.collision("collision");
+            this.addChild(blast);
+            carblast = new objects.collision("collision");
+            this.addChild(carblast);
 
             this._scoreLabel = new objects.Label("Score: ", "40px " + config.FONT_FAMILY, config.FONT_COLOR, 5, 5, false);
             this.addChild(this._scoreLabel);
@@ -82,12 +82,13 @@
 
         public update(): void {
             if (TruckCollided1) {
-                this.blast.update(p1);
-                this.addChild(this.blast);
+                blast.update(p1);
+                this.addChild(blast);
 
             } 
 
-            this.blast.reset();
+            blast.reset();
+            carblast.reset();
              //   this.addChild(this._trucks[0]);
               //  this.addChild(this._trucks[1]);
            
@@ -122,7 +123,7 @@
             this._car.update();
             this._smallCar.update();
 
-            p1=  this._collision._Truckcollision(this._trucks[0], this._trucks[1], this.blast);
+            p1=  this._collision._Truckcollision(this._trucks[0], this._trucks[1], blast);
            
             this._collision.update(this._car, this._trucks[1]);
             this._collision.update(this._car, this._trucks[0]);
@@ -156,6 +157,7 @@
         private updateScore(): void {
             this._livesLabel.text = "Lives: " + scoreboard.getLives();
             this._scoreLabel.text = "Score: " + scoreboard.getScore();
+
         }
         private _clickNextButton(event:createjs.MouseEvent): void {
             changeState(config.PLAY_STATE2);

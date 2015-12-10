@@ -4,7 +4,7 @@
         <key>fileFormatVersion</key>
         <int>3</int>
         <key>texturePackerVersion</key>
-        <string>3.9.4</string>
+        <string>4.0.1</string>
         <key>fileName</key>
         <string>D:/pendrive/avneet/D0892/avneet/centennial/5 sem/comp397WebGameProgramming/assignment/3/COMP397-Lesson4SideScroller/COMP397-Lesson4SideScroller/Assets/images/speedracer.tps</string>
         <key>autoSDSettings</key>
@@ -175,14 +175,16 @@
             <double>1</double>
             <key>scaleMode</key>
             <enum type="ScaleMode">Smooth</enum>
-            <key>innerPadding</key>
-            <uint>0</uint>
             <key>extrude</key>
             <uint>0</uint>
             <key>trimThreshold</key>
             <uint>1</uint>
+            <key>trimMargin</key>
+            <uint>1</uint>
             <key>trimMode</key>
             <enum type="SpriteSettings::TrimMode">Trim</enum>
+            <key>tracerTolerance</key>
+            <int>200</int>
             <key>heuristicMask</key>
             <false/>
             <key>pivotPoint</key>
@@ -190,17 +192,21 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>truck2.png</filename>
-            <filename>truck3.png</filename>
-            <filename>truck4.PNG</filename>
-            <filename>BackButton.png</filename>
-            <filename>car.png</filename>
-            <filename>coins.png</filename>
-            <filename>collision.png</filename>
-            <filename>fuel.png</filename>
-            <filename>NextButton.png</filename>
-            <filename>StartButton.png</filename>
-            <filename>truck1.png</filename>
+            <filename>New folder/BackButton.png</filename>
+            <filename>New folder/bullet1.png</filename>
+            <filename>New folder/car.png</filename>
+            <filename>New folder/coins.png</filename>
+            <filename>New folder/collision.png</filename>
+            <filename>New folder/fuel.png</filename>
+            <filename>New folder/gun.png</filename>
+            <filename>New folder/instructionButton.png</filename>
+            <filename>New folder/NextButton.png</filename>
+            <filename>New folder/SmallCar.png</filename>
+            <filename>New folder/StartButton.png</filename>
+            <filename>New folder/truck1.png</filename>
+            <filename>New folder/truck2.png</filename>
+            <filename>New folder/truck3.png</filename>
+            <filename>New folder/truck4.PNG</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

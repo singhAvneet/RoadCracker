@@ -64,11 +64,13 @@
 
        public rst(): void {
            this.x = Math.floor((Math.random() * 250) + 200);
-
            this.y = -this._heigth;
-       }
-       public rst1(p1: createjs.Point, p2: createjs.Point): void {
 
+       }
+
+       public rst1(): void {
+           this.x = Math.floor((Math.random() * 250) + 200);
+           this.y = 1000;
         //   this.x = Math.floor((Math.random() * 250) + 200);
          /*  if (p1.x < 136)
                this.x -= 2;

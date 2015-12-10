@@ -21,11 +21,14 @@ var objects;
             */
             TruckCollided1 = false;
         };
+        collision.prototype.update1 = function (p) {
+            this.x = p.x;
+            this.y = p.y;
+        };
         collision.prototype.reset = function () {
             this.y += this.dy;
             if (this.y > 350) {
                 game.removeChild(this);
-                TruckCollided2 = false;
             }
         };
         collision.prototype.checkbound = function () {

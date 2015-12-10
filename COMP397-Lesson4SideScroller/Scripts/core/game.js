@@ -17,8 +17,10 @@ var game3;
 var over;
 var state;
 var TruckCollided1;
-var TruckCollided2;
+var TruckCollided2; //tbd
 var p1;
+var blast;
+var carblast;
 var instruction;
 var data = {
     "images": [

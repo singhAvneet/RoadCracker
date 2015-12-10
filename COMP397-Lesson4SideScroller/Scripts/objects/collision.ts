@@ -19,17 +19,20 @@
             }
             */
             TruckCollided1 = false;
-           
-               
+
+        }
+        public update1(p: createjs.Point): void {
+
+            this.x = p.x;
+            this.y = p.y;
+
+
         }
         public reset(): void {
             this.y += this.dy;
-      
-
             if (this.y > 350) {
                 game.removeChild(this);
-            
-                TruckCollided2 = false;
+         //       TruckCollided2 = false;
             }
         }
         public checkbound(): void {
