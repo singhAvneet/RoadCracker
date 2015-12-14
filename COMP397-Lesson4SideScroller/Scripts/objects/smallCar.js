@@ -9,11 +9,11 @@ var objects;
         __extends(smallCar, _super);
         function smallCar() {
             _super.call(this, "SmallCar");
-            this.y = 380;
+            this.y = 480;
             this.x = 100;
         }
         smallCar.prototype.update = function () {
-            this.y -= 1;
+            this.y -= 0.5;
         };
         smallCar.prototype.destroy = function () {
             this._engineSound.stop();

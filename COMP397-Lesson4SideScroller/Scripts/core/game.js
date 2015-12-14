@@ -4,6 +4,7 @@ var assets;
 var canvas;
 var stage;
 var stats;
+var winning;
 var state;
 var currentState; // alias for our current state
 var atlas;
@@ -17,7 +18,7 @@ var game3;
 var over;
 var state;
 var TruckCollided1;
-var TruckCollided2; //tbd
+var carCollided; //tbd
 var p1;
 var blast;
 var carblast;
@@ -27,43 +28,44 @@ var data = {
         "../../Assets/images/atlas.png"
     ],
     "frames": [
-        [2, 2, 70, 146, 0, 0, 0],
-        [2, 150, 149, 50, 0, 0, 0],
-        [2, 202, 149, 50, 0, 0, 0],
-        [74, 2, 70, 140, 0, 0, 0],
-        [146, 2, 149, 50, 0, 0, 0],
-        [297, 2, 40, 50, 0, 0, 0],
-        [339, 2, 15, 8, 0, 0, 0],
-        [146, 54, 130, 50, 0, 0, 0],
-        [146, 106, 30, 30, 0, 0, 0],
-        [278, 54, 67, 108, 0, 0, 0],
-        [153, 138, 65, 100, 0, 0, 0],
-        [178, 106, 30, 29, 0, 0, 0],
-        [220, 106, 30, 49, 0, 0, 0],
-        [220, 164, 65, 80, 0, 0, 0],
-        [287, 164, 70, 70, 0, 0, 0]
+        [2, 2, 80, 80, 0, 0, 0],
+        [2, 84, 8, 18, 0, 0, 0],
+        [12, 84, 15, 8, 0, 0, 0],
+        [84, 2, 70, 80, 0, 0, 0],
+        [156, 2, 70, 70, 0, 0, 0],
+        [156, 74, 30, 30, 0, 0, 0],
+        [188, 74, 30, 29, 0, 0, 0],
+        [228, 2, 65, 65, 0, 0, 0],
+        [295, 2, 149, 50, 0, 0, 0],
+        [295, 54, 149, 50, 0, 0, 0],
+        [446, 2, 149, 50, 0, 0, 0],
+        [597, 2, 130, 50, 0, 0, 0],
+        [446, 54, 149, 50, 0, 0, 0],
+        [597, 54, 40, 50, 0, 0, 0],
+        [639, 54, 30, 49, 0, 0, 0]
     ],
     "animations": {
         "truck1": [0],
-        "BackButton": [1],
-        "StartButton": [2],
+        "bullet2": [1],
+        "bullet1": [2],
         "truck2": [3],
-        "instructionButton": [4],
-        "fuel": [5],
-        "bullet1": [6],
-        "NextButton": [7],
-        "SmallCar": [8],
-        "truck4": [9],
-        "truck3": [10],
-        "coins": [11],
-        "gun": [12],
-        "car": [13],
-        "collision": [14]
+        "collision": [4],
+        "SmallCar": [5],
+        "coins": [6],
+        "car": [7],
+        "BackButton": [8],
+        "StartButton": [9],
+        "instructionButton": [10],
+        "NextButton": [11],
+        "quit": [12],
+        "fuel": [13],
+        "gun": [14]
     }
 };
 // manifest of all our assets
 var manifest = [
     { id: "welcome", src: "../../Assets/images/welcome.png" },
+    { id: "finish", src: "../../Assets/images/finish.png" },
     { id: "track", src: "../../Assets/images/track.png" },
     { id: "ocean", src: "../../Assets/images/ocean.gif" },
     { id: "desert", src: "../../Assets/images/desert.png" },
@@ -72,6 +74,7 @@ var manifest = [
     { id: "engine", src: "../../Assets/audio/engine.ogg" },
     { id: "thunder", src: "../../Assets/audio/thunder.ogg" },
     { id: "blast", src: "Assets/audio/blast.wav" },
+    { id: "music", src: "Assets/audio/music.wav" },
     { id: "coin", src: "Assets/audio/coin.flac" },
     { id: "drift", src: "../../Assets/audio/drift.wav" },
     { id: "ending", src: "../../Assets/images/ending.png" }
@@ -115,6 +118,8 @@ function changeState(state) {
     // Launch various scenes
     switch (state) {
         case config.MENU_STATE:
+            state = 1;
+            winning = false;
             TruckCollided1 = false;
             stage.removeAllChildren();
             menu = new states.Menu();
@@ -126,13 +131,15 @@ function changeState(state) {
             game = new states.Game();
             currentState = game;
             state = 1;
+            winning = false;
             break;
         case config.PLAY_STATE2:
-            // show the play scene
+            TruckCollided1 = false;
             stage.removeAllChildren();
             game2 = new states.game2();
-            state = 2;
             currentState = game2;
+            state = 2;
+            winning = false;
             break;
         case config.PLAY_STATE3:
             // show the play scene

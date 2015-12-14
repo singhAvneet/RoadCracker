@@ -62,6 +62,7 @@
     <Content Include="Assets\audio\blast.wav" />
     <Content Include="Assets\audio\coin.flac" />
     <Content Include="Assets\audio\drift.wav" />
+    <Content Include="Assets\audio\music.wav" />
     <Content Include="Assets\fonts\dock51-webfont.svg" />
     <Content Include="Assets\images\atlas.png" />
     <Content Include="Assets\images\BackButton.png" />
@@ -70,6 +71,7 @@
     <Content Include="Assets\images\collision.png" />
     <Content Include="Assets\images\desert.png" />
     <Content Include="Assets\images\ending.png" />
+    <Content Include="Assets\images\finish.png" />
     <Content Include="Assets\images\fuel.png" />
     <Content Include="Assets\images\ground.png" />
     <Content Include="Assets\images\INSTRUCTIONS.png" />
@@ -135,6 +137,7 @@
     <TypeScriptCompile Include="Scripts\objects\coins.ts" />
     <TypeScriptCompile Include="Scripts\objects\collision.ts" />
     <TypeScriptCompile Include="Scripts\objects\desert.ts" />
+    <TypeScriptCompile Include="Scripts\objects\finishLine.ts" />
     <TypeScriptCompile Include="Scripts\objects\fuel.ts" />
     <TypeScriptCompile Include="Scripts\objects\gameObjects.ts" />
     <TypeScriptCompile Include="Scripts\objects\ground.ts" />

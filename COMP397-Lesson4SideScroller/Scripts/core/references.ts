@@ -28,6 +28,7 @@
 /// <reference path="../objects/smallcar.ts" />
 /// <reference path="../objects/bullet.ts" />
 /// <reference path="../objects/gun.ts" />
+/// <reference path="../objects/finishline.ts" />
 /// <reference path="../objects/ocean.ts" />
 /// <reference path="../objects/ground.ts" />
 /// <reference path="../objects/desert.ts" />

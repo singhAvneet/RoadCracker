@@ -5,7 +5,8 @@
             super("car");
             this.y = 380;
             this.x = 320;
-           this._engineSound= createjs.Sound.play("engine",0,0,0,-1,1,0);
+          //  this._engineSound = createjs.Sound.play("engine", 0, 0, 0, -1, 1, 0);
+            this._engineSound = createjs.Sound.play("music", 0, 0, 0, -1, 1, 0);
      /*   }
 
         public update(): void {

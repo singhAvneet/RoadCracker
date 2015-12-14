@@ -1,4 +1,5 @@
-﻿module states {
+﻿
+module states {
     // GAME CLASS
     export class game2 extends objects.Scene {
         // PRIVATE INSTANCE VARIABLES

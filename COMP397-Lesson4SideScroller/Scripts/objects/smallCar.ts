@@ -3,12 +3,12 @@
         private _engineSound: createjs.AbstractSoundInstance;
         constructor() {
             super("SmallCar");
-            this.y = 380;
+            this.y = 480;
             this.x = 100;
            }
 
         public update(): void {
-            this.y -= 1;
+            this.y -= 0.5;
         }
         public destroy(): void {
             this._engineSound.stop();
