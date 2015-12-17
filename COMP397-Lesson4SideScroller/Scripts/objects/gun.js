@@ -7,13 +7,13 @@ var objects;
 (function (objects) {
     var gun = (function (_super) {
         __extends(gun, _super);
-        function gun() {
+        function gun(yaxis) {
             _super.call(this, "gun");
-            this.y = 300;
+            this.y = yaxis;
             this.x = 630;
         }
-        gun.prototype.update = function () {
-            //this.y -= 0.5;
+        gun.prototype.update = function (yaxis) {
+            this.y = yaxis;
         };
         return gun;
     })(objects.GameObject);

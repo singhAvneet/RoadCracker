@@ -1,6 +1,7 @@
 ﻿module objects {
     export class bullet extends objects.GameObject {
         private _engineSound: createjs.AbstractSoundInstance;
+        private _yaxsis: number;
         constructor() {
             super("bullet1");
             this.y = 280;
@@ -13,13 +14,14 @@
             this.checkbound();
 
         }
-        public reset(): void {
-            this.y = 280;
+        public reset(yaxsis: number): void {
+            this._yaxsis = yaxsis;
+            this.y = yaxsis;
             this.x = 620;
         }
         private checkbound(): void {
             if (this.x <= 200 )
-                this.reset();
+                this.reset(this._yaxsis);
         }
     }
 }

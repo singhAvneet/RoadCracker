@@ -17,13 +17,14 @@ var objects;
             this.y += 0.4;
             this.checkbound();
         };
-        bullet.prototype.reset = function () {
-            this.y = 280;
+        bullet.prototype.reset = function (yaxsis) {
+            this._yaxsis = yaxsis;
+            this.y = yaxsis;
             this.x = 620;
         };
         bullet.prototype.checkbound = function () {
             if (this.x <= 200)
-                this.reset();
+                this.reset(this._yaxsis);
         };
         return bullet;
     })(objects.GameObject);

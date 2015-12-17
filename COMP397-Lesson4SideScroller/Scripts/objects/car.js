@@ -12,20 +12,22 @@ var objects;
             this.y = 380;
             this.x = 320;
             //  this._engineSound = createjs.Sound.play("engine", 0, 0, 0, -1, 1, 0);
-            this._engineSound = createjs.Sound.play("music", 0, 0, 0, -1, 1, 0);
+            if (state === 1)
+                this._engineSound = createjs.Sound.play("music2", 0, 0, 0, -1, 1, 0);
+            else if (state === 3) {
+            }
             /*   }
-       
-               public update(): void {
-                   if (200 < stage.mouseX && stage.mouseX < 450)
-                   this.x = stage.mouseX;
-       
-               }
-              public destroy():void {
-                  this._engineSound.stop();
-                  
-                //   game.removeChild();
-               }
-           }*/
+        public update(): void {
+            if (200 < stage.mouseX && stage.mouseX < 450)
+            this.x = stage.mouseX;
+
+        }
+       public destroy():void {
+           this._engineSound.stop();
+           
+         //   game.removeChild();
+        }
+    }*/
             this._assignControls();
         }
         car.prototype.destroy = function () {
@@ -43,7 +45,7 @@ var objects;
         };
         car.prototype.engineOff = function () {
             console.log("Engine off");
-            this._engineSound.stop();
+            this._engineSound.destroy();
         };
         // Bind key actions to player events
         car.prototype._assignControls = function () {

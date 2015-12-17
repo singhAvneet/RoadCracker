@@ -1,9 +1,9 @@
 ﻿module objects{
     export class track extends createjs.Bitmap {
         private dy: number;
-        constructor() {
+        constructor(speed:number) {
             super(assets.getResult("track"));
-            this.dy = 5;
+            this.dy = speed;
             this.reset();
             this.x = 177;
 

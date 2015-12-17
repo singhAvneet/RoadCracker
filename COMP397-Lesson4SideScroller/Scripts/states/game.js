@@ -25,11 +25,10 @@ var states;
             game.removeAllChildren();
             scoreboard.setLives(15);
             scoreboard.setScore(100);
-            this._nextButton = new objects.Button("NextButton", 420, 440);
-            stage.addChild(this);
+            this._nextButton = new objects.Button("NextButton", 100, 100);
             this._ocean = new objects.ocean();
             this.addChild(this._ocean);
-            this._track = new objects.track();
+            this._track = new objects.track(5);
             this.addChild(this._track);
             this._trucks[0] = new objects.truck("truck1");
             this.addChild(this._trucks[0]);
@@ -73,8 +72,6 @@ var states;
             }
             blast.reset();
             carblast.reset();
-            //   this.addChild(this._trucks[0]);
-            //  this.addChild(this._trucks[1]);
             if (scoreboard.getLives() < 10) {
                 this.addChild(this._coins);
                 this.addChild(this._fuel);

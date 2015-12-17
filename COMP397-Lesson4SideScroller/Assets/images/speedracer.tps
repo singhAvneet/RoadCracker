@@ -192,21 +192,22 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>New folder/BackButton.png</filename>
-            <filename>New folder/bullet1.png</filename>
-            <filename>New folder/car.png</filename>
-            <filename>New folder/coins.png</filename>
-            <filename>New folder/collision.png</filename>
-            <filename>New folder/fuel.png</filename>
-            <filename>New folder/gun.png</filename>
-            <filename>New folder/instructionButton.png</filename>
-            <filename>New folder/NextButton.png</filename>
-            <filename>New folder/SmallCar.png</filename>
-            <filename>New folder/StartButton.png</filename>
-            <filename>New folder/truck1.png</filename>
-            <filename>New folder/truck2.png</filename>
-            <filename>New folder/truck3.png</filename>
-            <filename>New folder/truck4.PNG</filename>
+            <filename>New folder/gameAssest/BackButton.png</filename>
+            <filename>New folder/gameAssest/bullet1.png</filename>
+            <filename>New folder/gameAssest/bullet2.PNG</filename>
+            <filename>New folder/gameAssest/car.png</filename>
+            <filename>New folder/gameAssest/coins.png</filename>
+            <filename>New folder/gameAssest/collision.png</filename>
+            <filename>New folder/gameAssest/fuel.png</filename>
+            <filename>New folder/gameAssest/gun.png</filename>
+            <filename>New folder/gameAssest/instructionButton.png</filename>
+            <filename>New folder/gameAssest/quit.png</filename>
+            <filename>New folder/gameAssest/SmallCar.png</filename>
+            <filename>New folder/gameAssest/StartButton.png</filename>
+            <filename>New folder/gameAssest/truck1.png</filename>
+            <filename>New folder/gameAssest/truck2.png</filename>
+            <filename>New folder/gameAssest/truck4.PNG</filename>
+            <filename>NextButton.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

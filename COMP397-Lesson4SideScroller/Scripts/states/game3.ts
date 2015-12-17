@@ -49,7 +49,7 @@
             this._smallCar = new objects.smallCar();
             this.addChild(this._smallCar);
 
-            this._gun = new objects.gun();
+            this._gun = new objects.gun(300);
             this.addChild(this._gun);
 
             this._bullet = new objects.bullet();

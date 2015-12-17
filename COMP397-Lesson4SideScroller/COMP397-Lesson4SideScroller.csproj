@@ -63,6 +63,7 @@
     <Content Include="Assets\audio\coin.flac" />
     <Content Include="Assets\audio\drift.wav" />
     <Content Include="Assets\audio\music.wav" />
+    <Content Include="Assets\audio\music2.mp3" />
     <Content Include="Assets\fonts\dock51-webfont.svg" />
     <Content Include="Assets\images\atlas.png" />
     <Content Include="Assets\images\BackButton.png" />

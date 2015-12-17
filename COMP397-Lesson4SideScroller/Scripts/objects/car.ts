@@ -6,9 +6,14 @@
             this.y = 380;
             this.x = 320;
           //  this._engineSound = createjs.Sound.play("engine", 0, 0, 0, -1, 1, 0);
-            this._engineSound = createjs.Sound.play("music", 0, 0, 0, -1, 1, 0);
-     /*   }
-
+            if (state === 1)
+                this._engineSound = createjs.Sound.play("music2", 0, 0, 0, -1, 1, 0);
+            else if (state === 3)
+            {
+              //  this._engineSound.stop();
+               // this._engineSound = createjs.Sound.play("music", 0, 0, 0, -1, 1, 0);
+                }
+            /*   }
         public update(): void {
             if (200 < stage.mouseX && stage.mouseX < 450)
             this.x = stage.mouseX;
@@ -27,7 +32,6 @@
         }
         public destroy(): void {
             this._engineSound.stop();
-           
             //   game.removeChild();
         }
 		
@@ -37,14 +41,13 @@
         public update(): void {
             // for moving with keyboard
             this._controlAction();
-           
             // for moving with mouse
             //this.x = stage.mouseX;
         }
 
         public engineOff(): void {
             console.log("Engine off");
-            this._engineSound.stop();
+            this._engineSound.destroy();
         }
 		
         // Bind key actions to player events

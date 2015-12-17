@@ -1,14 +1,14 @@
 ﻿module objects {
     export class gun extends objects.GameObject {
         private _engineSound: createjs.AbstractSoundInstance;
-        constructor() {
+        constructor(yaxis:number) {
             super("gun");
-            this.y = 300;
+            this.y = yaxis;
             this.x = 630;
         }
 
-        public update(): void {
-            //this.y -= 0.5;
+        public update(yaxis: number): void {
+            this.y = yaxis;
         }
        
     }

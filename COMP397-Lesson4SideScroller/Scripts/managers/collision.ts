@@ -23,7 +23,7 @@
                     switch (object2.getObjectName()) {
                         case "coins":
                             carCollided = true;
-                            //  createjs.Sound.play("coin");
+                              createjs.Sound.play("coin");
                             // this._tile1 = new createjs.Bitmap(assets.getResult("collision"));
                             // game._tile1 = new objects.Scene("collision");
                             // game2.addChild(this._tile1);
@@ -39,7 +39,7 @@
                             createjs.Sound.play("blast");
                             object2.rst();
                             carblast.update1(this._p2);
-                            game.addChild(carblast);
+                            this.addBlast();
                             carblast.reset();
                             carCollided = false;
                             break;
@@ -47,13 +47,13 @@
                             
                             if (state == 1) {
                                 game.removeChild(object2);
-                                scoreboard.addLives(1);
+                              
                             }
                             else if (state == 2)
                                 game2.removeChild(object2);
                             else
                                 game3.removeChild(object2);
-                            game.removeChild(object2);
+                            scoreboard.addLives(1);
                             break;
 
                         case "truck2":
@@ -61,7 +61,7 @@
                             if (_player.getObjectName() == "car") {
                                 object2.rst();
                                 carblast.update1(this._p2);
-                                game.addChild(carblast);
+                                this.addBlast();
                                 carblast.reset();
                             } else {
                                 object2.rst();
@@ -86,14 +86,25 @@
                // truck2.rst1(this._p1, this._p2
                 this._p1.x = truck1.getPosition().x;
                 this._p1.y = truck2.getPosition().y;
+                createjs.Sound.play("blast");
              //     blast = new objects.collision("collision");
-            //  game.addChild(blast);
+                this.addBlast();
                 //blast.update(truck1.getPosition());
                 TruckCollided1 = true;
                 truck1.rst();
                 truck2.rst1();
                 }
             return this._p1;
-            }
+        }
+
+        public addBlast(): void{
+            if (state == 1)
+                game.addChild(carblast);
+            else if (state == 2)
+                game2.addChild(carblast);
+            else
+                game3.addChild(carblast);
+
+        }
         }
     } 

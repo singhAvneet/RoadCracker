@@ -27,22 +27,18 @@
 
         // PUBLIC METHODS
         public start(): void {
-            TruckCollided1 = false;
-            
+            TruckCollided1 = false;            
             state = 1;
             carCollided = false;
             game.removeAllChildren();
             scoreboard.setLives(15);
             scoreboard.setScore(100);
-            this._nextButton = new objects.Button("NextButton",420,440 );
-            stage.addChild(this);
+            this._nextButton = new objects.Button("NextButton",100,100 );
 
             this._ocean = new objects.ocean();
             this.addChild(this._ocean);
-
-           
             
-            this._track = new objects.track();
+            this._track = new objects.track(5);
             this.addChild(this._track);
                                  
             this._trucks[0] = new objects.truck("truck1");
@@ -105,8 +101,6 @@
 
             blast.reset();
             carblast.reset();
-             //   this.addChild(this._trucks[0]);
-              //  this.addChild(this._trucks[1]);
            
             if (scoreboard.getLives() < 10) {
                 this.addChild(this._coins);
@@ -117,7 +111,7 @@
             this._track.update();
             this._trucks[1].update();
             this._trucks[0].update();
-            /*    
+            /*
             if (Math.floor(Math.random() * 7) === 2) {
                 this._trucks[0].update();
             }
@@ -133,7 +127,6 @@
                 this._trucks[0].update();
             }
             */
-              
             this._coins.update();
             this._fuel.update();
             this._car.update();
@@ -162,8 +155,7 @@
             this.updateScore();
          
             if ( this._smallCar.gety() < 70) {
-                this._car.destroy();
-               
+                this._car.destroy();               
                 this._nextButton.on("click", this._clickNextButton, this); // event listener
                 this.addChild(this._nextButton);
                 stage.addChild(this);                

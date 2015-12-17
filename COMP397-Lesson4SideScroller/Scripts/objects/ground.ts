@@ -3,7 +3,7 @@
         private dy: number;
         constructor() {
             super(assets.getResult("ground"));
-            this.dy = 5;
+            this.dy = 7;
             this.reset();
 
         }

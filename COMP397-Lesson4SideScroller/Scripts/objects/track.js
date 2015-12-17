@@ -7,9 +7,9 @@ var objects;
 (function (objects) {
     var track = (function (_super) {
         __extends(track, _super);
-        function track() {
+        function track(speed) {
             _super.call(this, assets.getResult("track"));
-            this.dy = 5;
+            this.dy = speed;
             this.reset();
             this.x = 177;
         }

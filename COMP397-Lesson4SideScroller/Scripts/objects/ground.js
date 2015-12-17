@@ -9,7 +9,7 @@ var objects;
         __extends(ground, _super);
         function ground() {
             _super.call(this, assets.getResult("ground"));
-            this.dy = 5;
+            this.dy = 7;
             this.reset();
         }
         ground.prototype.update = function () {
