@@ -27,6 +27,7 @@ var carCollided: boolean;//tbd
 var p1: createjs.Point;
 var blast: objects.collision;
 var carblast: objects.collision;
+var fire:boolean[]=[];
 var instruction: states.instruction;
 var data = {
 

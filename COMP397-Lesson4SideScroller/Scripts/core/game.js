@@ -22,6 +22,7 @@ var carCollided; //tbd
 var p1;
 var blast;
 var carblast;
+var fire = [];
 var instruction;
 var data = {
     "images": [

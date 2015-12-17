@@ -16,6 +16,7 @@ var objects;
             this.x -= 1;
             this.y += 0.4;
             this.checkbound();
+            fire[0] = true;
         };
         bullet.prototype.reset = function (yaxsis) {
             this._yaxsis = yaxsis;
@@ -23,8 +24,13 @@ var objects;
             this.x = 620;
         };
         bullet.prototype.checkbound = function () {
-            if (this.x <= 200)
+            if (this.x <= 200) {
                 this.reset(this._yaxsis);
+                fire[0] = false;
+            }
+        };
+        bullet.prototype.getX = function () {
+            return this.x;
         };
         return bullet;
     })(objects.GameObject);

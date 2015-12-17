@@ -16,6 +16,7 @@ var states;
             _super.call(this);
             // private _truck: objects.truck;
             this._trucks = [];
+            this._bullet = [];
         }
         // PUBLIC METHODS
         game2.prototype.start = function () {
@@ -24,6 +25,7 @@ var states;
             game.removeAllChildren();
             scoreboard.setLives(15);
             scoreboard.setScore(100);
+            this._fireNumber = 0;
             this._nextButton = new objects.Button("NextButton", 100, 100);
             //     this.addChild(this._nextButton);
             this._ground = new objects.ground();
@@ -38,8 +40,10 @@ var states;
             this.addChild(this._finishLine);
             this._gun = new objects.gun(300);
             this.addChild(this._gun);
-            this._bullet = new objects.bullet();
-            this.addChild(this._bullet);
+            /*  this._bullet[0] = new objects.bullet();
+              this._bullet[1] = new objects.bullet();
+              this._bullet[2] = new objects.bullet();
+              */
             this._trucks[1] = new objects.truck("truck2");
             this.addChild(this._trucks[1]);
             this._car = new objects.car();
@@ -105,12 +109,19 @@ var states;
             this._car.update();
             this._smallCar.update();
             //----------------Gun----------------------------
-            if (this._smallCar.gety() % 100 == 0 && this._smallCar.gety() < 380 && this._smallCar.gety() > 100) {
-                this._gunAxsis = Math.floor((Math.random() * 350) + 300);
+            if (this._smallCar.gety() % 100 == 0 && this._fireNumber <= 1) {
+                this._bullet[this._fireNumber] = new objects.bullet();
+                this.addChild(this._bullet[this._fireNumber]);
+                stage.addChild(this);
+                this._gunAxsis = Math.floor((Math.random() * 250) + 200);
                 this._gun.update(this._gunAxsis);
-                this._bullet.reset(this._gunAxsis - 20);
+                this._bullet[this._fireNumber].reset(this._gunAxsis - 20);
+                this._fireNumber += 1;
             }
-            this._bullet.update();
+            this._bullet[0].update();
+            this._bullet[1].update();
+            // this._bullet[2].update();
+            //this._bullet[3].update();
             //----------------Gun----------------------------
             p1 = this._collision._Truckcollision(this._trucks[0], this._trucks[1], blast);
             if (!carCollided && !winning) {

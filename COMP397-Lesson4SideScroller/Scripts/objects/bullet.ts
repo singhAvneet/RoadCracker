@@ -12,6 +12,7 @@
             this.x -= 1;
             this.y += 0.4;
             this.checkbound();
+            fire[0] = true;
 
         }
         public reset(yaxsis: number): void {
@@ -20,8 +21,14 @@
             this.x = 620;
         }
         private checkbound(): void {
-            if (this.x <= 200 )
+            if (this.x <= 200) {
                 this.reset(this._yaxsis);
+                fire[0] = false;
+            }
+        }
+
+        public getX(): number {
+            return this.x;
         }
     }
 }
