@@ -19,8 +19,8 @@
             this.welcomeImage = new createjs.Bitmap(assets.getResult("welcome"));
             this.addChild(this.welcomeImage);
            
-            
-            this._helloLabel = new objects.Label("Road Crack", "90px" + config.FONT_FAMILY, config.FONT_COLOR, 320, 248,false);
+      
+            this._helloLabel = new objects.Label("Road Cracker", "50px Consolas", "#ffff00", 220, 148,false);
             this.addChild(this._helloLabel); // add label to the stage
 
             this._instructionButton = new objects.Button("instructionButton", 320, 290)

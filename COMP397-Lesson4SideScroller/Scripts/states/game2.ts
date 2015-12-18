@@ -31,7 +31,7 @@
             TruckCollided1 = false;
             state = 2;
             game.removeAllChildren();
-            scoreboard.setLives(150);
+            scoreboard.setLives(15);
            // scoreboard.setScore(100);
             this._fireNumber = 0;
             this._nextButton = new objects.Button("NextButton", 100, 100);

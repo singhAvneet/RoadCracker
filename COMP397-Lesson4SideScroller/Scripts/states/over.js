@@ -18,14 +18,14 @@ var states;
             this.addChild(this.endingScreen);
             // level label
             if (state === 3 && winning) {
-                this._levelLabel = new objects.Label("You Won", "60px" + config.FONT_FAMILY, config.FONT_COLOR, 320, 240, true);
+                this._levelLabel = new objects.Label("You Won", "50px Consolas", "#000000", 320, 140, true);
                 this.addChild(this._levelLabel);
             }
             else {
-                this._levelLabel = new objects.Label("Game Over", "60px" + config.FONT_FAMILY, config.FONT_COLOR, 320, 240, true);
+                this._levelLabel = new objects.Label("Game Over", "50px Consolas", "#000000", 320, 140, true);
                 this.addChild(this._levelLabel); // add label to the stage
             }
-            this._levelLabel = new objects.Label("Your Total Score :" + scoreboard.getScore(), "60px" + config.FONT_FAMILY, config.FONT_COLOR, 320, 340, true);
+            this._levelLabel = new objects.Label("Your Total Score :" + scoreboard.getScore(), "50px Consolas", "#000000", 320, 240, true);
             this.addChild(this._levelLabel); // add label to the stage
             this.addChild(this._levelLabel);
             this._backButton = new objects.Button("BackButton", 320, 340);
