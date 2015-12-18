@@ -3,7 +3,7 @@
         private _engineSound : createjs.AbstractSoundInstance;
         constructor() {
             super("car");
-            this.y = 380;
+            this.y = 300;
             this.x = 320;
           //  this._engineSound = createjs.Sound.play("engine", 0, 0, 0, -1, 1, 0);
             if (state === 1)

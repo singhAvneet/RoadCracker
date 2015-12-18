@@ -12,7 +12,14 @@ var objects;
             this.y = 280;
             this.x = 620;
         }
-        bullet.prototype.update = function () {
+        bullet.prototype.update = function (axsis) {
+            this.x -= 1;
+            this.y = axsis;
+            //  this.y += 0.4;
+            this.checkbound();
+            fire[0] = true;
+        };
+        bullet.prototype.update1 = function () {
             this.x -= 1;
             this.y += 0.4;
             this.checkbound();

@@ -22,6 +22,9 @@ var objects;
         smallCar.prototype.gety = function () {
             return this.y;
         };
+        smallCar.prototype.sety = function (axsis) {
+            this.y = axsis;
+        };
         return smallCar;
     })(objects.GameObject);
     objects.smallCar = smallCar;

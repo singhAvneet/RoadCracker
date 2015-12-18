@@ -8,13 +8,9 @@ var states;
     // GAME CLASS
     var game2 = (function (_super) {
         __extends(game2, _super);
-        /*  _backButton: objects.Button;
-          _nextButton: objects.Button;
-          */
         // CONSTRUCTOR
         function game2() {
             _super.call(this);
-            // private _truck: objects.truck;
             this._trucks = [];
             this._bullet = [];
         }
@@ -23,11 +19,10 @@ var states;
             TruckCollided1 = false;
             state = 2;
             game.removeAllChildren();
-            scoreboard.setLives(15);
-            scoreboard.setScore(100);
+            scoreboard.setLives(150);
+            // scoreboard.setScore(100);
             this._fireNumber = 0;
             this._nextButton = new objects.Button("NextButton", 100, 100);
-            //     this.addChild(this._nextButton);
             this._ground = new objects.ground();
             this.addChild(this._ground);
             this._track = new objects.track(7);
@@ -35,15 +30,12 @@ var states;
             this._trucks[0] = new objects.truck("truck1");
             this.addChild(this._trucks[0]);
             this._smallCar = new objects.smallCar();
+            this._smallCar.sety(800);
             this.addChild(this._smallCar);
             this._finishLine = new objects.finish();
             this.addChild(this._finishLine);
             this._gun = new objects.gun(300);
             this.addChild(this._gun);
-            /*  this._bullet[0] = new objects.bullet();
-              this._bullet[1] = new objects.bullet();
-              this._bullet[2] = new objects.bullet();
-              */
             this._trucks[1] = new objects.truck("truck2");
             this.addChild(this._trucks[1]);
             this._car = new objects.car();
@@ -62,11 +54,6 @@ var states;
             this.addChild(this._livesLabel);
             this._collision = new managers.Collision();
             stage.addChild(this);
-            /*                // next button
-                        this._nextButton = new objects.Button("NextButton", 420, 340);
-                        this._nextButton.on("click", this._clickNextButton, this); // event listener
-                        this.addChild(this._nextButton);
-                        */
         };
         game2.prototype.update = function () {
             if (TruckCollided1) {
@@ -88,68 +75,57 @@ var states;
             this._track.update();
             this._trucks[1].update();
             this._trucks[0].update();
-            /*
-          if (Math.floor(Math.random() * 7) === 2) {
-              this._trucks[0].update();
-          }
-          else {
-              this._trucks[1].update();
-          }
-
-            if(scoreboard.getScore()>1000)
-          if (Math.floor(Math.random() * 3) === 2) {
-              this._trucks[1].update();
-          }
-          else {
-              this._trucks[0].update();
-          }
-          */
             this._coins.update();
             this._fuel.update();
             this._car.update();
             this._smallCar.update();
-            //----------------Gun----------------------------
-            if (this._smallCar.gety() % 100 == 0 && this._fireNumber <= 1) {
+            //----------------Gun and bullets----------------------------
+            if (this._smallCar.gety() % 100 == 0 && this._fireNumber <= 2) {
                 this._bullet[this._fireNumber] = new objects.bullet();
                 this.addChild(this._bullet[this._fireNumber]);
                 stage.addChild(this);
-                this._gunAxsis = Math.floor((Math.random() * 250) + 200);
-                this._gun.update(this._gunAxsis);
+                //  this._gunAxsis = Math.floor((Math.random() * 250) + 200);
+                // this._gun.update(this._gunAxsis);
                 this._bullet[this._fireNumber].reset(this._gunAxsis - 20);
                 this._fireNumber += 1;
             }
-            this._bullet[0].update();
-            this._bullet[1].update();
-            // this._bullet[2].update();
+            if (this._smallCar.gety() % 100 == 0) {
+                this._gunAxsis = Math.floor((Math.random() * 250) + 200);
+                this._gun.update(this._gunAxsis);
+                this._bullet[0].update(this._gunAxsis - 20);
+                this._bullet[1].update(this._gunAxsis - 20);
+                this._bullet[2].update(this._gunAxsis - 20);
+            }
+            this._bullet[0].update1();
+            this._bullet[1].update1();
+            this._bullet[2].update1();
             //this._bullet[3].update();
-            //----------------Gun----------------------------
+            //----------------Gun and bullets----------------------------
             p1 = this._collision._Truckcollision(this._trucks[0], this._trucks[1], blast);
             if (!carCollided && !winning) {
                 if (this._smallCar.gety() % 8 == 0)
                     scoreboard.addScore(50);
                 this._collision.update(this._car, this._trucks[1]);
                 this._collision.update(this._car, this._trucks[0]);
+                this._collision.update(this._car, this._bullet[0]);
+                this._collision.update(this._car, this._bullet[1]);
+                this._collision.update(this._car, this._bullet[2]);
                 this._collision.update(this._car, this._coins);
                 this._collision.update(this._car, this._fuel);
             }
             this.updateScore();
-            /*       if (this._smallCar.gety() < 70) {
-                   //    this._car.destroy();
-                   
-                       this._nextButton.on("click", this._clickNextButton, this); // event listener
-                       this.addChild(this._nextButton);
-                       stage.addChild(this);
-                       winning = true;
-                   }
-                   else
-                       scoreboard.removeLives(0.04);
-       
-                   if (scoreboard.getLives() <= 0 || scoreboard.getLives() <= 0) {
-                  //     this._car.destroy();
-                       this.removeAllChildren();
-                       //  currentState = constants.GAME_OVER_STATE;
-                       changeState(config.OVER_STATE);
-                   }*/
+            if (this._smallCar.gety() < 70) {
+                this._nextButton.on("click", this._clickNextButton, this); // event listener
+                this.addChild(this._nextButton);
+                stage.addChild(this);
+                winning = true;
+            }
+            else
+                scoreboard.removeLives(0.04);
+            if (scoreboard.getLives() <= 0 || scoreboard.getLives() <= 0) {
+                this.removeAllChildren();
+                changeState(config.OVER_STATE);
+            }
         };
         game2.prototype.updateScore = function () {
             this._livesLabel.text = "Fuel: " + scoreboard.getLives();

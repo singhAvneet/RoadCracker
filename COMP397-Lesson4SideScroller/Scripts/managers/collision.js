@@ -62,6 +62,20 @@ var managers;
                             }
                             carCollided = true;
                             break;
+                        case "bullet1":
+                            carCollided = true;
+                            createjs.Sound.play("blast");
+                            carblast.update1(this._p2);
+                            if (state == 1) {
+                                game.removeChild(object2);
+                            }
+                            else if (state == 2) {
+                                game2.removeChild(object2);
+                            }
+                            else
+                                game3.removeChild(object2);
+                            this.addBlast();
+                            break;
                     }
                     object2.setCollision(true);
                 }

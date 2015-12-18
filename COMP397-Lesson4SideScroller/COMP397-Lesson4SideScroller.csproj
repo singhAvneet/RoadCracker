@@ -75,6 +75,7 @@
     <Content Include="Assets\images\finish.png" />
     <Content Include="Assets\images\fuel.png" />
     <Content Include="Assets\images\ground.png" />
+    <Content Include="Assets\images\instruction.png" />
     <Content Include="Assets\images\INSTRUCTIONS.png" />
     <Content Include="Assets\images\NextButton.png" />
     <Content Include="Assets\images\ocean.gif" />

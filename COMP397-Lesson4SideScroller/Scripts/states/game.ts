@@ -17,9 +17,7 @@
        
         _scoreLabel: objects.Label;
         _livesLabel: objects.Label;
-      /*  _backButton: objects.Button;
-        _nextButton: objects.Button;
-        */
+     
         // CONSTRUCTOR
         constructor() {
             super();
@@ -78,12 +76,7 @@
 
             stage.addChild(this);
 
-            /*   // next button
-                        this._nextButton = new objects.Button("NextButton", 420, 340);
-                        this._nextButton.on("click", this._clickNextButton, this); // event listener
-                        this.addChild(this._nextButton);
-                        */
-
+         
         }
 
         public update(): void {

@@ -8,9 +8,18 @@
             this.x = 620;
         }
 
-        public update(): void {
+        public update(axsis:number): void {
             this.x -= 1;
-            this.y += 0.4;
+            this.y = axsis;
+          //  this.y += 0.4;
+            this.checkbound();
+            fire[0] = true;
+
+        }
+        public update1(): void {
+            this.x -= 1;
+           
+             this.y += 0.4;
             this.checkbound();
             fire[0] = true;
 

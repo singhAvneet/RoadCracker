@@ -18,5 +18,8 @@
         public gety(): number {
             return this.y;
         }
+        public sety(axsis:number): void {
+            this.y = axsis;
+        }
     }
 }

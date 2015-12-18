@@ -8,9 +8,6 @@ var states;
     // GAME CLASS
     var Game = (function (_super) {
         __extends(Game, _super);
-        /*  _backButton: objects.Button;
-          _nextButton: objects.Button;
-          */
         // CONSTRUCTOR
         function Game() {
             _super.call(this);
@@ -54,11 +51,6 @@ var states;
             this.addChild(this._livesLabel);
             this._collision = new managers.Collision();
             stage.addChild(this);
-            /*   // next button
-                        this._nextButton = new objects.Button("NextButton", 420, 340);
-                        this._nextButton.on("click", this._clickNextButton, this); // event listener
-                        this.addChild(this._nextButton);
-                        */
         };
         Game.prototype.update = function () {
             if (TruckCollided1) {

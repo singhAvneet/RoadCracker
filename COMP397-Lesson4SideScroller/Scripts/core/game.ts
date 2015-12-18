@@ -82,7 +82,7 @@ var manifest = [
     { id: "ocean", src: "../../Assets/images/ocean.gif" },
     { id: "desert", src: "../../Assets/images/desert.png" },
     { id: "ground", src: "../../Assets/images/ground.png" },
-    { id: "instruction", src: "../../Assets/images/INSTRUCTIONS.png" },
+    { id: "instruction", src: "../../Assets/images/instruction.png" },
     { id: "engine", src: "../../Assets/audio/engine.ogg" },
     { id: "thunder", src: "../../Assets/audio/thunder.ogg" },
     { id: "blast", src: "Assets/audio/blast.wav" },
@@ -111,7 +111,6 @@ function init():void {
     setupStats(); // sets up our stats counting
     scoreboard = new managers.Scorecard();
     state = config.MENU_STATE;
-
     changeState(state);
 }
 
@@ -136,8 +135,7 @@ function setupStats():void {
 
 // state machine prep
 function changeState(state): void {
-    // Launch various scenes
-
+    
     switch (state) {
         case config.MENU_STATE:
             state = 1;
@@ -169,6 +167,7 @@ function changeState(state): void {
             game3 = new states.game3();
             state = 3;
             currentState = game3;
+            winning = false;
             break;
         case config.OVER_STATE:
             // show the game over scene

@@ -13,21 +13,35 @@ var objects;
             this.reset();
         }
         truck.prototype.update = function () {
-            if (this.x > 209.00 && this.x < 412) {
-                this.x += this.dx;
+            if (state === 3) {
+                if (this.x < 200.00)
+                    this.x += this.dx;
+                else if (this.x > 250)
+                    this.x -= this.dx;
             }
+            else if (this.x > 209.00 && this.x < 412)
+                this.x += this.dx;
             this.y += this.dy;
             this.checkbound();
         };
         truck.prototype.reset = function () {
-            this.dx = Math.floor(Math.random() * 4) - 2;
+            if (state === 3)
+                this.dx = Math.floor(Math.random() * 0) + 1;
+            else
+                this.dx = Math.floor(Math.random() * 4) - 2;
             this.dy = Math.floor(Math.random() * 5) + 5;
-            this.x = Math.floor((Math.random() * 250) + 200);
+            if (state === 3)
+                this.x = 320;
+            else
+                this.x = Math.floor((Math.random() * 250) + 200);
             this.y = -this._heigth;
         };
         truck.prototype.checkbound = function () {
             if (this.y >= (480 + this._heigth))
                 this.reset();
+        };
+        truck.prototype.setX = function () {
+            this.x = 320;
         };
         return truck;
     })(objects.GameObject);

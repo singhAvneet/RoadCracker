@@ -20,7 +20,7 @@
             this.addChild(this.welcomeImage);
            
             
-            this._helloLabel = new objects.Label("Speed Racer", "50px" +  config.FONT_FAMILY, config.FONT_COLOR, 320, 248,true);
+            this._helloLabel = new objects.Label("Road Crack", "90px" + config.FONT_FAMILY, config.FONT_COLOR, 320, 248,false);
             this.addChild(this._helloLabel); // add label to the stage
 
             this._instructionButton = new objects.Button("instructionButton", 320, 290)
