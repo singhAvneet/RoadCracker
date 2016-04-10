@@ -21,6 +21,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <TypeScriptToolsVersion>1.6</TypeScriptToolsVersion>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -98,6 +99,8 @@
     <Content Include="Assets\fonts\dock51-webfont.ttf" />
     <Content Include="Assets\fonts\dock51-webfont.woff" />
     <Content Include="Assets\fonts\dock51-webfont.woff2" />
+    <None Include="Properties\PublishProfiles\RoadCracker.pubxml" />
+    <None Include="Properties\PublishProfiles\SqlSampleWebApp.pubxml" />
     <None Include="Properties\PublishProfiles\WebTestingTBD.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
